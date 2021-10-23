@@ -1,0 +1,13 @@
+---
+title: Homepage
+---
+{% extends './_layouts/base.njk' %}
+
+{% block content %}
+  {% for article in collections.archives %}
+    <p>{{ article.data.title }}, {{ article.date | date }}</p>
+  {% endfor %}
+  {% for year in collections.archives.years %}
+    {{ year }}
+  {% endfor %}
+{% endblock %}
