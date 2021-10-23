@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jon Roobottom’s personal website">
+    <meta name="robots" content="index, follow">
+    <title>{{ title }} / Jon Roobottom’s website</title>
+
+    <link rel="me" href="https://github.com/roobottom">
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+    <link rel="micropub" href="https://roobottom-indiekit.herokuapp.com/micropub">
+</head>
+<body class="{{ body_class }}">
+  <main>
+  {% block content %}
+  {% endblock %}
+  </main>
+  <footer>
+  {% block footer %}
+  {% endblock %}
+  </footer>
+</body>
+</html>
