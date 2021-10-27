@@ -1,0 +1,19 @@
+---
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  title: "Archive for {{ year }}"
+permalink: "archives/{{ year }}/"
+pagination:
+  data: collections.archives
+  size: 1
+  alias: year
+---
+{% extends "../../layouts/base.njk" %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+
+  {% for article in collections.archives[year] %}
+    <p>{{ article.data.title }}, {{ article.date | date }}</p>
+  {% endfor %}
+{% endblock %}
