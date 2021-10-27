@@ -1,0 +1,12 @@
+---
+title: Archives
+---
+{% extends "../../layouts/base.njk" %}
+
+{% block content %}
+  {{ posts | dump }}
+  <p>Hi mum</p>
+  {% for post in data.posts %}
+    <p>{{ post }}</p>
+  {% endfor %}
+{% endblock %}
