@@ -28,6 +28,7 @@ module.exports = function (eleventyConfig) {
 
 //** static files
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
+  eleventyConfig.addPassthroughCopy('source/_redirects')
 
 //**  11ty core settings 
   return {

@@ -1,4 +1,4 @@
 {
   "layout": "page.njk",
-  "permalink": "/articles/{{ page.fileSlug }}/index.html"
+  "permalink": "/articles/{{ date | slug_date }}-{{ title | slug }}/"
 }
