@@ -8,7 +8,17 @@ permalink: "archives/"
 {% block content %}
   <h1>{{ title }}</h1>
 
-  {% for year in collections.archives.list | reverse %}
-    <p><a href="/archives/{{ year }}">{{ year }}</p>
+  <h2>Explore content by year</h2>
+  <ol>
+  {% for year in collections.years | reverse %}
+    <li><a href="/archives/{{ year }}">{{ year }}</a></li>
   {% endfor %}
+  </ol>
+
+  <h2>Explore content by tag</h2>
+  <ul>
+  {% for tag in collections.tags %}
+    <li><a href="/tags/{{ tag.title | slug }}">{{ tag.title | title }}</a> - {{ tag.count }} items</li>
+  {% endfor %}
+  </ul>
 {% endblock %}

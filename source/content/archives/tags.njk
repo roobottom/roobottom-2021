@@ -1,0 +1,19 @@
+---
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  title: "Archive for {{ tag.title }}"
+permalink: "tags/{{ tag.title | slug }}/"
+pagination:
+  data: collections.tags
+  size: 1
+  alias: tag
+---
+{% extends "../../layouts/base.njk" %}
+
+{% block content %}
+  <h1>{{ tag.title | title }}</h1>
+
+  {% for article in collections[tag.title] %}
+    <p>{{ article.data.title }}, {{ article.date | date }}</p>
+  {% endfor %}
+{% endblock %}
