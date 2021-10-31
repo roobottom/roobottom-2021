@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('slug_date', require('./lib/filters/slug-date.js'))
 
 //** static files
-  eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yaml": "admin/" })
+  eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
 
 //**  11ty core settings 
   return {
