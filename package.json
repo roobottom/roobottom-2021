@@ -10,6 +10,7 @@
     "moment": "^2.29.1"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "markdown-to-txt": "^2.0.0"
   }
 }
