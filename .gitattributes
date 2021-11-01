@@ -1,0 +1,2 @@
+source/images/articles/**/* filter=lfs diff=lfs merge=lfs -text
+source/images/photos/**/* filter=lfs diff=lfs merge=lfs -text
