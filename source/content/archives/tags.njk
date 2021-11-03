@@ -13,7 +13,9 @@ pagination:
 {% block content %}
   <h1>{{ tag.title | title }}</h1>
 
+  <ul>
   {% for article in collections[tag.title] %}
-    <p>{{ article.data.title }}, {{ article.date | date }}</p>
+    <li><a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
   {% endfor %}
+  </ul>
 {% endblock %}
