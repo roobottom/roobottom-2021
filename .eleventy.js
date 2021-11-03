@@ -11,6 +11,9 @@ module.exports = function (eleventyConfig) {
   //all from content/photos and content/notes, ordered by date
   eleventyConfig.addCollection('diary', require('./lib/collections/diary.js'))
 
+  //returns any posts from content/** that were written on the same date as the render
+  eleventyConfig.addCollection('onThisDay', require('./lib/collections/on-this-day.js'))
+
   //all from content/**, ordered by date
   eleventyConfig.addCollection('content', require('./lib/collections/content.js'))
 
