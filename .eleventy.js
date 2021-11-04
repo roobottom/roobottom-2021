@@ -1,4 +1,3 @@
-const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy")
 require('dotenv').config()
 
 module.exports = function (eleventyConfig) {
@@ -10,9 +9,6 @@ module.exports = function (eleventyConfig) {
 
   //all from content/photos and content/notes, ordered by date
   eleventyConfig.addCollection('diary', require('./lib/collections/diary.js'))
-
-  //returns any posts from content/** that were written on the same date as the render
-  eleventyConfig.addCollection('onThisDay', require('./lib/collections/on-this-day.js'))
 
   //all from content/**, ordered by date
   eleventyConfig.addCollection('content', require('./lib/collections/content.js'))
@@ -34,12 +30,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
   eleventyConfig.addPassthroughCopy('source/_redirects')
   eleventyConfig.addPassthroughCopy("source/images")
-
-//** serverless
-  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-    name: "archives",
-    functionsDir: "./netlify/functions/",
-  })
 
 //**  11ty core settings 
   return {
