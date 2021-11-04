@@ -35,6 +35,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('source/_redirects')
   eleventyConfig.addPassthroughCopy("source/images")
 
+//** serverless
+  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+    name: "archives",
+    functionsDir: "./netlify/functions/",
+  })
+
 //**  11ty core settings 
   return {
     dir: {

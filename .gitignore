@@ -2,3 +2,5 @@
 .DS_Store
 /_site
 *.env
+netlify/functions/archives/**
+!netlify/functions/archives/index.js
