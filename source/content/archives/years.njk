@@ -8,14 +8,15 @@ pagination:
   size: 1
   alias: year
 ---
-{% extends "../../layouts/base.njk" %}
+{% extends "../../layouts/page.njk" %}
 
 {% block content %}
   <h1>{{ title }}</h1>
-
+  <ul>
   {% for article in collections.content %}
     {% if article.date | date('YYYY') == year %}
-    <p>{{ article.data.title }}, {{ article.date | date }}</p>
+    <li><a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
     {% endif %}
   {% endfor %}
+  </ul>
 {% endblock %}

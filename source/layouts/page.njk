@@ -1,13 +1,25 @@
----
-title: Homepage
----
 {% extends "./base.njk" %}
+
+{% block header %}
+  <nav>
+    <ul>
+      {% for item in globalNavigation %}
+        <li id="{{ item.id }}"><a href="{{ item.href }}">{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}
 
 {% block content %}
   <h1>{{ title }}</h1>
   {{ content | safe }}
+  {% if photo %}
+    {% for p in photo %}
+      {% figure p.url, p.alt %}
+    {% endfor %}
+  {% endif %}
 {% endblock %}
 
 {% block footer %}
-  <p>Footer</p>
+  <p>&copy; Copyright Jon Roobottom</p>
 {% endblock %}

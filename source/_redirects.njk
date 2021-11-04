@@ -4,3 +4,4 @@ eleventyExcludeFromCollections: true
 ---
 {% for article in collections.articles %}/articles/{{ article.fileSlug }}/ /articles/{{ article.date | slug_date }}-{{ article.data.title | slug | safe }}/
 {% endfor %}
+/tags/index.html /archives/index.html

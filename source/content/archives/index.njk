@@ -3,7 +3,7 @@ eleventyExcludeFromCollections: true
 title: "Archives"
 permalink: "archives/"
 ---
-{% extends "../../layouts/base.njk" %}
+{% extends "../../layouts/page.njk" %}
 
 {% block content %}
   <h1>{{ title }}</h1>
@@ -19,7 +19,7 @@ permalink: "archives/"
 
   <h2>Explore content by year</h2>
   <ol>
-  {% for year in collections.years | reverse %}
+  {% for year in collections.years %}
     <li><a href="/archives/{{ year }}">{{ year }}</a></li>
   {% endfor %}
   </ol>

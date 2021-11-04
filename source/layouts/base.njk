@@ -16,13 +16,17 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body class="{{ body_class }}">
+  <header>
+    {% block header %}
+    {% endblock %}
+  </header>
   <main>
-  {% block content %}
-  {% endblock %}
+    {% block content %}
+    {% endblock %}
   </main>
   <footer>
-  {% block footer %}
-  {% endblock %}
+    {% block footer %}
+    {% endblock %}
   </footer>
   {% block scripts %}
   {% endblock %}
