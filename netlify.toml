@@ -1,6 +1,0 @@
-[[redirects]]
-from = "/archives/"
-to = "/.netlify/functions/archives"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "archives"
