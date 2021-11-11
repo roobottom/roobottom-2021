@@ -1,3 +1,5 @@
+const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy")
+
 require('dotenv').config()
 
 module.exports = function (eleventyConfig) {
@@ -30,6 +32,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
   eleventyConfig.addPassthroughCopy('source/_redirects')
   eleventyConfig.addPassthroughCopy("source/images")
+
+//** serverless
+  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+    name: "serverless",
+    functionsDir: "./netlify/functions/",
+  })
 
 //**  11ty core settings 
   return {

@@ -1,8 +1,14 @@
----
-title: Welcome to Jon’s website
-permalink: "/"
-eleventyExcludeFromCollections: true
-layout: "page.njk"
+---js
+{
+	layout: "page.njk",
+  title: "Welcome to Jon’s website",
+	now: (new Date()).toISOString(),
+	permalink: {
+		build: "/",
+		serverless: "/live/"
+	},
+  eleventyExcludeFromCollections: true
+}
 ---
 Thanks for visiting my little corner of the web. You've found my personal website where I write about my life; it's probably of limited interest to anyone.
 
