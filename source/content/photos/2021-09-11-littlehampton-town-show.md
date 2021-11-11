@@ -9,4 +9,4 @@ photo:
   alt: Roo posing on a Vespa with many lights and shiny dangly bits
 
 ---
-We went to the Littlehampton Town Show and Roo got to ride on a Vespa.
+We went to the Littlehampton Town Show and Roo got to ride on a Vespa
