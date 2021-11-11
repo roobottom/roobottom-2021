@@ -37,6 +37,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "serverless",
     functionsDir: "./netlify/functions/",
+    copy: ['./lib']
   })
 
 //**  11ty core settings 

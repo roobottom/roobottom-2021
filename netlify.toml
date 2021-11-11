@@ -1,5 +1,5 @@
 [[redirects]]
-from = "/live/"
+from = "/"
 to = "/.netlify/functions/serverless"
 status = 200
 force = true

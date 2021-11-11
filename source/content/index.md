@@ -1,11 +1,10 @@
 ---js
 {
-	layout: "page.njk",
+	layout: "homepage.njk",
   title: "Welcome to Jon’s website",
 	now: (new Date()).toISOString(),
 	permalink: {
-		build: "/",
-		serverless: "/live/"
+		serverless: "/"
 	},
   eleventyExcludeFromCollections: true
 }
