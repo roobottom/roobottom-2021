@@ -1,0 +1,23 @@
+---
+label: Photo post
+hide_body: false
+fields:
+- type: datetime
+  name: date
+  label: date
+- type: text
+  name: summary
+  label: summary
+- type: list
+  name: tags
+  label: tags
+- type: field_group_list
+  name: photo
+  label: photo
+  fields:
+  - type: file
+    name: url
+    label: url
+  - type: text
+    name: alt
+    label: alt
