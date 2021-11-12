@@ -21,6 +21,10 @@ module.exports = function (eleventyConfig) {
   //returns an array of tags used in post in content/**
   eleventyConfig.addCollection('tags', require('./lib/collections/tags.js'))
 
+  eleventyConfig.addCollection("randomPhotos", function(collection) {
+		return collection.getAll()
+	})
+
 //** shortcodes
   eleventyConfig.addShortcode('figure', require('./lib/shortcodes/figure.js'))
 
@@ -37,7 +41,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "serverless",
     functionsDir: "./netlify/functions/",
-    copy: ['./lib']
+    copy: [
+      './lib',
+      '_generated-random-photos.json'
+    ]
   })
 
 //**  11ty core settings 
