@@ -2,12 +2,10 @@
 date: 2021-08-20
 tags:
   - travel
-  - mom
-  - dad
   - roo
-  - katie
   - rootwo
   - new forest
+summary: 'First day of holiday in the New Forest'
 photo:
   - 
     url: "/images/photos/2021-08-20-russian-dolls.jpeg"

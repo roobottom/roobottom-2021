@@ -21,27 +21,26 @@ module.exports = function (eleventyConfig) {
   //returns an array of tags used in post in content/**
   eleventyConfig.addCollection('tags', require('./lib/collections/tags.js'))
 
+  //returns a dictionary of stats about the all posts
+  eleventyConfig.addCollection('stats', require('./lib/collections/stats.js'))
+
+
 //** shortcodes
   eleventyConfig.addShortcode('figure', require('./lib/shortcodes/figure.js'))
 
 //** filters
   eleventyConfig.addFilter('date', require('./lib/filters/date.js'))
   eleventyConfig.addFilter('slug_date', require('./lib/filters/slug-date.js'))
+  eleventyConfig.addFilter('shuffle', require('./lib/filters/shuffle.js'))
+  eleventyConfig.addFilter('subset', require('./lib/filters/subset.js'))
 
 //** static files
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
   eleventyConfig.addPassthroughCopy('source/_redirects')
   eleventyConfig.addPassthroughCopy("source/images")
 
-//** serverless
-  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-    name: "serverless",
-    functionsDir: "./netlify/functions/",
-    copy: [
-      './lib',
-      '_generated-random-photos.json'
-    ]
-  })
+//** watch lib
+  eleventyConfig.addWatchTarget("./lib/**/*.js")
 
 //**  11ty core settings 
   return {
@@ -50,7 +49,6 @@ module.exports = function (eleventyConfig) {
       includes: 'includes',
       layouts: 'layouts',
       data: 'data',
-      dataTemplateEngine: 'njk',
       markdownTemplateEngine: 'njk',
       htmlTemplateEngine: 'njk',
       templateFormats: ['njk']

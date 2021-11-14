@@ -1,0 +1,15 @@
+---
+title: "Thanks for visiting my little corner of the web"
+permalink: "/"
+eleventyExcludeFromCollections: true
+---
+{% extends "../layouts/page.njk" %}
+{% block content %}
+stats: {{ collections.stats | dump(2) }}
+<h1>{{ title }}.</h1>
+<p>You’ve found my personal website where I write about things like {% for tag in collections.tags | subset(5) %}#<a href="/tags/{{ tag.title | slug }}">{{ tag.title | title }}</a>{% if loop.revindex > 2 %}, {% endif %}{% if loop.revindex == 2 %} and {% endif %}{% endfor %}; it's probably of limited interest to anyone else.</p>
+<p>Over the last {{ collections.stats.allPosts.timespan }} years, from {{ collections.stats.allPosts.earliest | date('MMMM YYYY') }} until {{ collections.stats.allPosts.latest | date('MMMM YYYY') }}, I wrote {{ collections.stats.allPosts.count }} posts.</p>
+{% for post in collections.diary | subset(5) %}
+  <img src="{{ post.data.photo[0].url }}" alt="{{ post.data.photo[0].alt or post.data.summary }}">
+{% endfor %}
+{% endblock %}

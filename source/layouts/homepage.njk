@@ -2,12 +2,5 @@
 
 {% block content %}
 {{ super() }}
-<p>Hi from the layout {{ now }}</p>
-<h2><code>page</code> Data:</h2>
-<pre>{{ page | dump(2) }}</pre>
 
-<h2><code>eleventy</code> Data:</h2>
-<pre>{{ eleventy | dump(2) }}</pre>
-
-{{ collections | dump(2) }}
 {% endblock %}

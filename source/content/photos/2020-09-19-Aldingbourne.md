@@ -1,7 +1,7 @@
 ---
 tags:
   - roo
-  - katie
+  - days out
   - rootwo 
 date: 2020-09-19
 summary: Aldingbourne trust
