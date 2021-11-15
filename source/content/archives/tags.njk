@@ -12,9 +12,9 @@ pagination:
 
 {% block content %}
   <h1>{{ tag.title | title }}</h1>
-
+  {% if tagsMeta[tag.title] %}{{ tagsMeta[tag.title] }}{% endif %}
   <ul>
-  {% for article in collections[tag.title] %}
+  {% for article in collections[tag.title] | reverse %}
     <li><a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
   {% endfor %}
   </ul>
