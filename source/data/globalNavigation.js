@@ -14,4 +14,8 @@ module.exports = [{
   title: 'Archives',
   href: '/archives/',
   id: 'archives'
+}, {
+  title: 'About',
+  href: '/about/',
+  id: 'about'
 }]
