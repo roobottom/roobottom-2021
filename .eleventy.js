@@ -1,6 +1,24 @@
 require('dotenv').config()
+const markdownIt = require("markdown-it")
+const markdownItAttrs = require("markdown-it-attrs")
+const markdownItDiv = require('markdown-it-div')
+const markdownItAbbr = require('markdown-it-abbr')
 
 module.exports = function (eleventyConfig) {
+
+//** markdown
+  let mdOptions = {
+    typographer: true,
+    quotes: '“”‘’',
+    html: true
+  }
+  let md =  markdownIt(mdOptions)
+            .use(markdownItAttrs)
+            .use(markdownItDiv)
+            .use(markdownItAbbr)
+
+  //11ty md eleventyConfig
+  eleventyConfig.setLibrary("md", md)
 
 //** collections
 
@@ -32,6 +50,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('slug_date', require('./lib/filters/slug-date.js'))
   eleventyConfig.addFilter('shuffle', require('./lib/filters/shuffle.js'))
   eleventyConfig.addFilter('subset', require('./lib/filters/subset.js'))
+  eleventyConfig.addFilter("plural", require('./lib/filters/plural.js'))
 
 //** static files
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
