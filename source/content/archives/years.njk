@@ -15,7 +15,7 @@ pagination:
   <ul>
   {% for article in collections.content %}
     {% if article.date | date('YYYY') == year %}
-    <li><a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
+    <li>{{ article.data.type }}: <a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
     {% endif %}
   {% endfor %}
   </ul>
