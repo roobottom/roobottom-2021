@@ -51,6 +51,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('shuffle', require('./lib/filters/shuffle.js'))
   eleventyConfig.addFilter('subset', require('./lib/filters/subset.js'))
   eleventyConfig.addFilter("plural", require('./lib/filters/plural.js'))
+  eleventyConfig.addFilter("slugify", require('./lib/filters/slugify.js'))
 
 //** static files
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
