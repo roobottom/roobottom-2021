@@ -39,14 +39,6 @@
 
 </head>
 <body class="">
-  <h2><code>page</code> Data:</h2>
-<pre>{{ page | dump(2) }}</pre>
-
-<h2><code>eleventy</code> Data:</h2>
-<pre>{{ eleventy | dump(2) }}</pre>
-
-<h2><code>openGraph</code> Data:</h2>
-<pre>{{ openGraph | dump(2) }}</pre>
 
   <header>
     {% block header %}
@@ -59,6 +51,14 @@
   <footer>
     {% block footer %}
     {% endblock %}
+    <h2><code>page</code> Data:</h2>
+    <pre>{{ page | dump(2) }}</pre>
+
+    <h2><code>eleventy</code> Data:</h2>
+    <pre>{{ eleventy | dump(2) }}</pre>
+
+    <h2><code>openGraph</code> Data:</h2>
+    <pre>{{ openGraph | dump(2) }}</pre>
   </footer>
   {% block scripts %}
   {% endblock %}
