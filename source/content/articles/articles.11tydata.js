@@ -1,11 +1,11 @@
-const moment = require('moment')
+const slugDate = require('../../../lib/filters/slug-date.js')
 const slugify = require('../../../lib/filters/slugify.js')
 const openGraph = require('../../data/openGraph.js')
 
 module.exports = {
   layout: "page.njk",
   eleventyComputed: {
-    permalink: data => `/articles/${moment(data.date).format('YYYY-MM-DD')}-${slugify(data.title)}/`,
+    permalink: data => `/articles/${slugDate(data.date)}-${slugify(data.title)}/`,
     openGraph: data => {
       return {
         type: 'article',
