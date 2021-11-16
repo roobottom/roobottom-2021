@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "npx gulp"
+    "dev": "npx gulp",
+    "build": "npx gulp build"
   },
   "devDependencies": {
     "@netlify/functions": "^0.8.0"
