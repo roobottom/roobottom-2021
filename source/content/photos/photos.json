@@ -1,4 +1,0 @@
-{
-  "layout": "page.njk",
-  "permalink": "/diary/{{ page.date | slug_date }}-{{ page.fileSlug }}/"
-}
