@@ -32,10 +32,17 @@
   {% set count = count + 1 %}
 {%- endfor -%}
 {% block pageNavigation %}
-  <nav>
+  <nav aria-label="tags">
     <ul>
-      {% if prevPost %}<li>Previous {{ type.title }}: <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a></li>{% endif %}
-      {% if nextPost %}<li>Next {{ type.title }}: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+      {% for tag in tags %}
+        <li><a href="/tags/{{ tag | slug }}" rel="tag">{{ tag }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <nav aria-label="pagination">
+    <ul>
+      {% if prevPost %}<li>Previous {{ type.title }}: <a href="{{ prevPost.url }}" rel="prev">{{ prevPost.data.title }}</a></li>{% endif %}
+      {% if nextPost %}<li>Next {{ type.title }}: <a href="{{ nextPost.url }}" rel="next">{{ nextPost.data.title }}</a></li>{% endif %}
     </ul>
   </nav>
 {% endblock %}
