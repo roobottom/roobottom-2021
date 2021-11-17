@@ -4,7 +4,10 @@ const openGraph = require('../../data/openGraph.js')
 
 module.exports = {
   layout: 'page.njk',
-  type: 'Diary post',
+  type: {
+    id: 'diary',
+    title: 'Diary post'
+  },
   eleventyComputed: {
     title: data => { 
       return data.summary === undefined || data.summary === '' ? `Diary entry for ${date(data.date)}` : data.summary

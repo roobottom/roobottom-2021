@@ -15,7 +15,7 @@ pagination:
   {% if tagsMeta[tag.title] %}{{ tagsMeta[tag.title] }}{% endif %}
   <ul>
   {% for article in collections[tag.title] | reverse %}
-    <li>{{ article.data.type }}: <a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
+    <li>{{ article.data.type.title }}: <a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
   {% endfor %}
   </ul>
 {% endblock %}
