@@ -57,6 +57,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
   eleventyConfig.addPassthroughCopy('source/_redirects')
   eleventyConfig.addPassthroughCopy("source/images")
+  eleventyConfig.addPassthroughCopy("source/assets")
 
 //** watch lib
   eleventyConfig.addWatchTarget("./lib/**/*.js")
