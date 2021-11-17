@@ -20,6 +20,27 @@
   {% endif %}
 {% endblock %}
 
+{% if type.id == 'diary' or type.id == 'articles' %}
+{% set count = 0 %}
+{% set prevPost = null %}
+{% set nextPost = null %}
+{%- for post in collections[type.id] -%}
+  {% if post.url == page.url %}
+    {% set prevPost = collections[type.id][count + 1] %}
+    {% set nextPost = collections[type.id][count - 1] %}
+  {% endif %}
+  {% set count = count + 1 %}
+{%- endfor -%}
+{% block pageNavigation %}
+  <nav>
+    <ul>
+      {% if prevPost %}<li>Previous {{ type.title }}: <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a></li>{% endif %}
+      {% if nextPost %}<li>Next {{ type.title }}: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+    </ul>
+  </nav>
+{% endblock %}
+{% endif %}
+
 {% block footer %}
   <p>&copy; Copyright Jon Roobottom</p>
 {% endblock %}
