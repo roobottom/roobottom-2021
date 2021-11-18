@@ -1,7 +1,12 @@
----
-title: Dairy
-permalink: "/diary/"
-eleventyExcludeFromCollections: true
+---js
+{
+  title: "Diary",
+  permalink: "/diary/",
+  eleventyExcludeFromCollections: true,
+  page: {
+    navigationId: 'diary'
+  }
+}
 ---
 {% extends "../layouts/page.njk" %}
 {% block content %}

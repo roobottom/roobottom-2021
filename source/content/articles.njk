@@ -1,7 +1,12 @@
----
-title: Articles
-permalink: "/articles/"
-eleventyExcludeFromCollections: true
+---js
+{
+  title: "Articles",
+  permalink: "/articles/",
+  eleventyExcludeFromCollections: true,
+  page: {
+    navigationId: 'articles'
+  }
+}
 ---
 {% extends "../layouts/page.njk" %}
 {% block content %}

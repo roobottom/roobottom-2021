@@ -4,9 +4,10 @@ const openGraph = require('../../data/openGraph.js')
 
 module.exports = {
   layout: 'page.njk',
-  type: {
-    id: 'diary', //match the collection name
-    title: 'Diary post'
+  page: {
+    collectionId: 'diary',
+    collectionTitle: 'Diary post',
+    navigationId: 'diary'
   },
   eleventyComputed: {
     title: data => { 

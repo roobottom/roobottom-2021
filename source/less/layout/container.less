@@ -1,0 +1,14 @@
+#container {
+  .default() {
+    max-width: unit((@width-max/@base),rem);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-s);
+    padding-right: var(--space-s);
+    display: block;
+  }
+  .prose() {
+    #container.default;
+    max-width: var(--line-length);
+  }
+}

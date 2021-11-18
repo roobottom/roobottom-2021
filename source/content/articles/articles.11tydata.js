@@ -4,9 +4,10 @@ const openGraph = require('../../data/openGraph.js')
 
 module.exports = {
   layout: 'page.njk',
-  type: {
-    id: 'articles', //match the collection id
-    title: 'Long form article'
+  page: {
+    collectionId: 'articles',
+    collectionTitle: 'Long-form article',
+    navigationId: 'articles'
   },
   eleventyComputed: {
     permalink: data => `/articles/${slugDate(data.date)}-${slugify(data.title)}/`,

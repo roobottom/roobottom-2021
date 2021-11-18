@@ -1,8 +1,13 @@
----
-title: About
-permalink: "/about/"
-eleventyExcludeFromCollections: true
-layout: "page.njk"
+---js
+{
+  title: "About",
+  permalink: "/about/",
+  eleventyExcludeFromCollections: true,
+  layout: "page.njk",
+  page: {
+    navigationId: 'about'
+  }
+}
 ---
 Hello, I’m Jon, and this is my website. I’ve been writing here for the last {{ collections.stats.allPosts.timespan }} years, mainly about my personal life, so it’s of little interest to anyone else. 
 

@@ -1,14 +1,19 @@
----
-title: "Thanks for visiting my little corner of the web"
-permalink: "/"
-eleventyExcludeFromCollections: true
+---js
+{
+  title: "Thanks for visiting my little corner of the web",
+  permalink: "/",
+  eleventyExcludeFromCollections: true,
+  page: {
+    navigationId: 'homepage'
+  }
+}
 ---
 {% extends "../layouts/page.njk" %}
 {% block content %}
 <div class="prose">
   <h1>{{ title }}.</h1>
   <p>You’ve found my personal website where I write about things like {% for tag in collections.tags | subset(5) %}#<a href="/tags/{{ tag.title | slug }}">{{ tag.title | title }}</a>{% if loop.revindex > 2 %}, {% endif %}{% if loop.revindex == 2 %} and {% endif %}{% endfor %}; it's probably of limited interest to anyone else.</p>
-  <p>I’ve been writing here for the last {{ collections.stats.allPosts.timespan }} years, since {{ collections.stats.allPosts.earliest | date('MMMM YYYY') }}. Over that time, I published {{ collections.stats.allPosts.count }} posts; that’s <a href="/articles/">{{ collections.stats.articles.count }} long-form articles</a> and <a href="/diary/">{{ collections.stats.diaryPosts.count }} diary entries</a>.</p>
+  <p>I’ve been writing stuff here for the last {{ collections.stats.allPosts.timespan }} years. Over that time, I have published {{ collections.stats.allPosts.count }} posts; <a href="/articles/">{{ collections.stats.articles.count }} long-form articles</a> and <a href="/diary/">{{ collections.stats.diaryPosts.count }} diary entries</a>.</p>
   <p>Elsewhere, I run a small design consultancy called <a href="https://roodesign.co.uk">Roodesign</a>. You should go there if you want user-centred design stuff. </p>
   <p>— <a href="/about/">Jon Roobottom</a></p>
 </div>

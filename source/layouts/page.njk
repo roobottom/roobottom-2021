@@ -1,10 +1,10 @@
 {% extends "./base.njk" %}
 
 {% block header %}
-  <nav>
+  <nav class="banner">
     <ul>
       {% for item in globalNavigation %}
-        <li id="{{ item.id }}"><a href="{{ item.href }}">{{ item.title }}</a></li>
+        <li id="{{ item.id }}" class="banner__navigation-item"><a class="banner__navigation-link" href="{{ item.href }}"{% if page.navigationId == item.id %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
       {% endfor %}
     </ul>
   </nav>
@@ -20,17 +20,18 @@
   {% endif %}
 {% endblock %}
 
-{% if type.id == 'diary' or type.id == 'articles' %}
-{% set count = 0 %}
-{% set prevPost = null %}
-{% set nextPost = null %}
-{%- for post in collections[type.id] -%}
-  {% if post.url == page.url %}
-    {% set prevPost = collections[type.id][count + 1] %}
-    {% set nextPost = collections[type.id][count - 1] %}
-  {% endif %}
-  {% set count = count + 1 %}
-{%- endfor -%}
+{% if page.collectionId == 'diary' or page.collectionId == 'articles' %}
+  {% set count = 0 %}
+  {% set prevPost = null %}
+  {% set nextPost = null %}
+  {%- for post in collections[page.collectionId] -%}
+    {% if post.url == page.url %}
+      {% set prevPost = collections[page.collectionId][count + 1] %}
+      {% set nextPost = collections[page.collectionId][count - 1] %}
+    {% endif %}
+    {% set count = count + 1 %}
+  {%- endfor -%}
+
 {% block pageNavigation %}
   <nav aria-label="tags">
     <ul>
