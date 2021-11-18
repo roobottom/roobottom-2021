@@ -36,17 +36,13 @@
   .make-typescale-up(@counter: 0) when (@counter <= @typescale-up-steps) {
       @min: round(pow(@type-min-scale, @counter) * @type-min-size, 2);
       @max: round(pow(@type-max-scale, @counter) * @type-max-size, 2);
-      :root {
-          --step-@{counter}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
-      }
+      --step-@{counter}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
       #type > .make-typescale-up(@counter + 1); 
   }
   .make-typescale-down(@counter: 1) when (@counter <= @typescale-down-steps) {
       @min: round((@type-min-size / pow(@type-min-scale, @counter)), 2);
       @max: round((@type-max-size / pow(@type-max-scale, @counter)), 2);
-      :root {
-          --step--@{counter}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
-      }
+      --step--@{counter}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
       #type > .make-typescale-down(@counter + 1);  
   }
 
@@ -56,16 +52,12 @@
       @max: round(pow(@type-max-scale, @maxstep) * @type-max-size, 2);
       font-size: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
   }
-
-  //is this useful? It doesn't respect any scale:
-  // .sizes(@min, @max) {
-  //     font-size: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
-  // }
 }
 
-#type > .make-typescale-up;
-#type > .make-typescale-down;
-
+:root {
+  #type > .make-typescale-up;
+  #type > .make-typescale-down;
+}
 
 //global text styles
 body {

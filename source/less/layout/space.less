@@ -2,42 +2,16 @@
   .make(@modifier: 1, @name) {
       @min: @type-min-size * @modifier;
       @max: @type-max-size * @modifier;
-      :root {
-          --space-@{name}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
-      }
-      // #space > .class(margin, top, @name);
-      // #space > .class(margin, bottom, @name);
-      // #space > .class(margin, left, @name);
-      // #space > .class(margin, right, @name);
-      // #space > .class(margin, all, @name);
-      // #space > .class(padding, top, @name);
-      // #space > .class(padding, bottom, @name);
-      // #space > .class(padding, left, @name);
-      // #space > .class(padding, right, @name);
-      // #space > .class(padding, all, @name);
+      --space-@{name}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
   }
-  // .range(@attr, @min-name, @max-name) {
-  //   @min: @type-min-size * @spaceSizes[@@min-name];
-  //   @max: @type-max-size * @spaceSizes[@@max-name];
-  //   @{attr}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
-  // }
-  // .class(@type, @direction, @size) when not (@direction = all) {
-  //   .space--@{type}-@{direction}-@{size} {
-  //     @{type}-@{direction}: ~"var(--space-@{size})";
-  //   }
-  // }
-  // .class(@type, @direction, @size) when (@direction = all) {
-  //   .space--@{type}-@{direction}-@{size} {
-  //     @{type}: ~"var(--space-@{size})";
-  //   }
-  // }
-
 }
 
-#space > .make(@spaceSizes[@xxs], xxs);
-#space > .make(@spaceSizes[@xs], xs);
-#space > .make(@spaceSizes[@s], s);
-#space > .make(@spaceSizes[@m], m);
-#space > .make(@spaceSizes[@l], l);
-#space > .make(@spaceSizes[@xl], xl);
-#space > .make(@spaceSizes[@xxl], xxl);
+:root {
+  #space > .make(@spaceSizes[@xxs], xxs);
+  #space > .make(@spaceSizes[@xs], xs);
+  #space > .make(@spaceSizes[@s], s);
+  #space > .make(@spaceSizes[@m], m);
+  #space > .make(@spaceSizes[@l], l);
+  #space > .make(@spaceSizes[@xl], xl);
+  #space > .make(@spaceSizes[@xxl], xxl);
+}
