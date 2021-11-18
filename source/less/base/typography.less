@@ -33,6 +33,19 @@
         font-family: 'DM Mono', monospace;
     }
   }
+  .style() {
+    .link() {
+      color: var(--c-text);
+      text-decoration: underline;
+
+      &:hover {
+        color: var(--c-pink);
+      }
+      &:focus {
+        outline: 2px solid var(--c-blue);
+      }
+    }
+  }
   .make-typescale-up(@counter: 0) when (@counter <= @typescale-up-steps) {
       @min: round(pow(@type-min-scale, @counter) * @type-min-size, 2);
       @max: round(pow(@type-max-scale, @counter) * @type-max-size, 2);
