@@ -4,7 +4,7 @@
   <nav class="banner">
     <ul>
       {% for item in globalNavigation %}
-        <li id="{{ item.id }}" class="banner__navigation-item"><a class="banner__navigation-link" href="{{ item.href }}"{% if page.navigationId == item.id %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        <li class="{{ item.id }}" class="banner__navigation-item"><a class="banner__navigation-link" href="{{ item.href }}"{% if page.navigationId == item.id %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
       {% endfor %}
     </ul>
   </nav>

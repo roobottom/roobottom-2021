@@ -1,0 +1,55 @@
+.banner {
+  #container.default;
+  padding-top: var(--space-s);
+  padding-bottom: var(--space-s);
+  text-transform: uppercase;
+  font-weight: bold;
+
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    //justify-items: start;
+  }
+
+  li:not(.homepage) {
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  //move some of this stuff to a global link style??
+  a {
+    padding-top: var(--space-xs);
+    padding-bottom: var(--space-xs);
+    display: block;
+    color: var(--c-text);
+    text-decoration: none;
+
+    &[aria-current] {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      outline: 1px var(--c-text) dotted;
+    }
+  }
+
+  @media @bp[mid] {
+    ul {
+      display: flex;
+    }
+    li.homepage {
+      margin-right: auto;
+    }
+    li:not(.homepage) {
+      margin-left: var(--space-s);
+    }
+  }
+
+}

@@ -38,6 +38,11 @@
   @xxl: 5;
 }
 
+.make-colours(@basecolour, @variablestub, @alpha) when (@alpha > 0) {
+  @{variablestub}-@{alpha}: fade(@basecolour, unit(@alpha, %));
+  .make-colours(@basecolour, @variablestub, @alpha - 10);
+}
+
 //css vars
 :root {
   --fluid-min-width: @width-min;
@@ -56,17 +61,21 @@
   --line-height--supertight: 0.9;
 
   //colours
-  --c-grey-x-dark: #333333;
-  --c-grey-dark: #555555;
-  --c-grey-light: #CCCCCC;
-  --c-grey-x-light: #F1F1F1;
-  --c-purple: #7B05E2;
-  --c-purple-dark: darken(#7B05E2, 15%);
-  --c-pink: #A313D0;
-  --c-yellow: #EDBB4A;
-  --c-blue: #004ADB;
-  --c-pink-light: #F2C9FF;
-  --c-error: var(--c-pink);
+  --c-text: #000;
+
+  --c-yellow: #FFC432;
+  .make-colours(#FFC432, --c-yellow, 100);
+
+  --c-orange: #FF5D1A;
+  .make-colours(#FF5D1A, --c-orange, 100);
+
+  --c-blue: #30BCED;
+  .make-colours(#30BCED, --c-blue, 100);
+
+  --c-pink: #F00699;
+  .make-colours(#F00699, --c-pink, 100);
+
+  
 
 }
 
