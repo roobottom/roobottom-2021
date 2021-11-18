@@ -1,7 +1,7 @@
 ---
 tags:
 - cycling
-- new forest
+- the new forest
 date: 2020-09-10
 summary: Gravel riding in the New Forest
 photo:
