@@ -1,0 +1,17 @@
+{% macro renderAPost (post) %}
+  <div class="summary-list-row">
+    <dt class="summary-list-title"><a href="{{ post.url }}">{{ post.data.title }}</a></dt>
+    <dd class="summary-list-meta"><time class="quiet" datetime="{{ post.date | date('') }}">{{ post.date | date }}</time><dd>
+  </div>
+{% endmacro %}
+
+{% macro postsByYear (years, posts) %}
+  {%- for year in years -%}
+    <h2>{{ year }}</h2>
+    <dl class="summary-list">
+      {% for post in posts %}
+      {% if post.date | date('YYYY') == year %}{{ renderAPost (post) }}{% endif %}
+      {% endfor %}
+    </dl>
+  {%- endfor -%}
+{% endmacro %}

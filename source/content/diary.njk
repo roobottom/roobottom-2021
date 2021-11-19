@@ -8,12 +8,9 @@
   }
 }
 ---
+{% from "../../lib/components/postsByYear.njk" import postsByYear as postsByYear %}
 {% extends "../layouts/page.njk" %}
 {% block content %}
   <h1>{{ title }}</h1>
-  <ol>
-  {% for article in collections.diary %}
-  <li><a href="{{ article.url }}">{{ article.data.title }}</a></li>
-  {% endfor %}
-  </ol>
+  {{ postsByYear(collections.years.diaryPosts, collections.diary) }}
 {% endblock %}
