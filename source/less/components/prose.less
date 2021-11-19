@@ -1,16 +1,81 @@
 .prose {
+
+  >* {
+    .container;
+  }
   
-  .container;
-  max-width: var(--line-length);
+
+//** horizontal spacing
+
+  >*:not(.gallery):not(figure),
+  figcaption {
+    max-width: var(--line-length);
+  }
+
+  figcaption {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+//** vertical spacing
 
   >*+* {
       margin-top: var(--space-s);
   }
 
   >*+h2 {
-      margin-top: var(--space-xxl);
+    margin-top: var(--space-xxl);
   }
 
+  .gallery, figure {
+    margin-top: var(--space-l);
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-xs);
+  }
+  hr {
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-l);
+  }
+
+  li:not(:last-child),
+  ul>li,
+  ol>li {
+    margin-bottom: var(--space-xs);
+  }
+
+//** list styles
+
+  >ol>li,
+  >ul>li {
+    margin-left: 1em;
+  }
+  ul ul, ul ol, ol ol, ol ul {
+    padding: 0;
+    margin-left: 1em;
+  }
+  ul  {
+    list-style: disc;
+    ul {
+      list-style: circle;
+      ul {
+        list-style: square;
+      }
+    }
+  }
+  ol {
+    list-style: decimal;
+    ol {
+      list-style: lower-roman;
+      ol {
+        list-style: lower-latin;
+      }
+    }
+  }
+
+//** styles
   a {
     #type.style.link;
   }

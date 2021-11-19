@@ -45,7 +45,7 @@
   .style() {
     .link() {
       color: var(--c-text);
-      text-decoration: var(--c-text-underline) underline;
+      text-decoration: var(--c-pink) underline;
       padding: var(--space-xs);
       margin: calc(-1 * var(--space-xs));
 
@@ -99,7 +99,7 @@ h1, h2, h3, h4 {
 }
 
 h1, .h1 { //applies to main headings
-  #type.steps(5,10.5);
+  #type.steps(5,9);
   #type.family.serif;
   font-weight: normal;
 }
@@ -131,3 +131,21 @@ code, pre {
   font-size: 90%;
 }
 
+.hanging-punctuation {
+  margin-left: -0.3em;
+}
+@supports (hanging-punctuation: first) {
+  
+  .hanging-punctuation {
+    margin-left: 0;
+  }
+}
+
+hr {
+  background-image: url("@{assets}roo-mark-sm.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: unit((20/@base), rem);
+  width: 100%;
+  border: none;
+}

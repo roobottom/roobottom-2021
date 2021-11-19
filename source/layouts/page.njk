@@ -19,12 +19,14 @@
 {% endblock %}
 
 {% block content %}
-  {{ content | safe }}
-  {% if photo %}
-    {% for p in photo %}
-      {% figure p.url, p.alt %}
-    {% endfor %}
-  {% endif %}
+  <div class="prose">
+    {{ content | hangingPunctuation | safe }}
+    {% if photo %}
+      {% for p in photo %}
+        {% figure p.url, p.alt %}
+      {% endfor %}
+    {% endif %}
+  </div>
 {% endblock %}
 
 {% if page.collectionId == 'diary' or page.collectionId == 'articles' %}

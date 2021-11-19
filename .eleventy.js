@@ -52,6 +52,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('subset', require('./lib/filters/subset.js'))
   eleventyConfig.addFilter("plural", require('./lib/filters/plural.js'))
   eleventyConfig.addFilter("slugify", require('./lib/filters/slugify.js'))
+  eleventyConfig.addFilter("hangingPunctuation", str => {
+    return str.replace(/^(<p>)*([“"])(.*)/gm,"$1<span class='hanging-punctuation'>$2</span>$3")
+  })
 
 //** static files
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
