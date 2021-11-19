@@ -7,7 +7,7 @@
 
 {% macro postsByYear (years, posts) %}
   {%- for year in years -%}
-    <h2>{{ year }}</h2>
+    <h2 class="summary-list-heading">{{ year }}</h2>
     <dl class="summary-list">
       {% for post in posts %}
       {% if post.date | date('YYYY') == year %}{{ renderAPost (post) }}{% endif %}

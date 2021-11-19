@@ -8,10 +8,17 @@
       {% endfor %}
     </ul>
   </nav>
+  {% if page.navigationId != 'homepage' %}
+  <div class="title">
+  {% block title %}
+    <h1>{{ title }}</h1>
+    <time datetime="{{ page.date | date('') }}">{{ page.date | date }}</time>
+  {% endblock %}
+  </div>
+  {% endif %}
 {% endblock %}
 
 {% block content %}
-  <h1>{{ title }}</h1>
   {{ content | safe }}
   {% if photo %}
     {% for p in photo %}
@@ -50,5 +57,5 @@
 {% endif %}
 
 {% block footer %}
-  <p>&copy; Copyright Jon Roobottom</p>
+  <p class="copyright">&copy; Copyright, {{ collections.stats.allPosts.earliest | date('YYYY') }} to {{ collections.stats.allPosts.latest | date('YYYY') }} Jon Roobottom</p>
 {% endblock %}
