@@ -12,19 +12,31 @@
   <div class="title">
   {% block title %}
     <h1>{{ title }}</h1>
-    <time datetime="{{ page.date | date('') }}">{{ page.date | date }}</time>
+    {% if not hideDate %}
+    <time datetime="{{ date | date('') }}">{{ date | date }}</time>
+    {% endif %}
   {% endblock %}
   </div>
   {% endif %}
 {% endblock %}
 
+{% macro renderPhotos(photos) %}
+{% for p in photos -%}
+  {% figure p.url, p.alt %}
+{%- endfor %}
+{% endmacro %}
+
 {% block content %}
   <div class="prose">
     {{ content | hangingPunctuation | safe }}
     {% if photo %}
-      {% for p in photo %}
-        {% figure p.url, p.alt %}
-      {% endfor %}
+      {% if photo | length > 1 %}
+        <div class="gallery">
+        {{ renderPhotos(photo) }}
+        </div>
+      {% else %}
+        {{ renderPhotos(photo) }}
+      {% endif %}
     {% endif %}
   </div>
 {% endblock %}

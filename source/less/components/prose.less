@@ -1,21 +1,34 @@
 .prose {
 
-  >* {
+  //** horizontal spacing
+
+  >*:not(figure):not(.gallery) {
     .container;
-  }
-  
-
-//** horizontal spacing
-
-  >*:not(.gallery):not(figure),
-  figcaption {
     max-width: var(--line-length);
   }
 
-  figcaption {
-    margin-left: auto;
-    margin-right: auto;
+  >figure {
+    @media @bp[mid] {
+      max-width: calc(var(--line-length) + 2 * var(--space-m));
+    }
   }
+
+  >.gallery, >figure.wide {
+    @media @bp[mid] {
+      max-width: var(--site-width);
+    }
+  }
+
+
+  >figure figcaption {
+    @media @bp[mid] {
+      max-width: var(--line-length);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+
 
 //** vertical spacing
 
@@ -27,7 +40,7 @@
     margin-top: var(--space-xxl);
   }
 
-  .gallery, figure {
+  >.gallery, >figure {
     margin-top: var(--space-l);
   }
 

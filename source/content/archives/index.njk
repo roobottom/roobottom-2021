@@ -10,7 +10,7 @@ permalink: "/archives/"
 
   <h2>Explore content by year</h2>
   <ol>
-  {% for year in collections.years.allPosts %}
+  {% for year in collections.years %}
     <li><a href="/archives/{{ year }}">{{ year }}</a></li>
   {% endfor %}
   </ol>

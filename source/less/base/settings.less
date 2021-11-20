@@ -48,6 +48,8 @@
   --fluid-min-width: @width-min;
   --fluid-max-width: @width-max;
 
+  --site-width: unit((@width-max/@base), rem);
+
   --fluid-screen: 100vw;
   --fluid-bp: calc(
     (var(--fluid-screen) - var(--fluid-min-width) / @base * 1rem) /
