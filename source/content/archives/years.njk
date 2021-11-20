@@ -11,7 +11,6 @@ pagination:
 {% extends "../../layouts/page.njk" %}
 
 {% block content %}
-  <h1>{{ title }}</h1>
   <ul>
   {% for article in collections.content %}
     {% if article.date | date('YYYY') == year %}

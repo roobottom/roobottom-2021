@@ -33,6 +33,8 @@ module.exports = function (eleventyConfig) {
 
   //returns an array of years from content/**
   eleventyConfig.addCollection('years', require('./lib/collections/years.js'))
+  eleventyConfig.addCollection('yearsArticles', require('./lib/collections/yearsArticles.js'))
+  eleventyConfig.addCollection('yearsDiary', require('./lib/collections/yearsDiary.js'))
 
   //returns an array of tags used in post in content/**
   eleventyConfig.addCollection('tags', require('./lib/collections/tags.js'))
