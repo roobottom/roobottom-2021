@@ -10,11 +10,15 @@ pagination:
 ---
 {% extends "../../layouts/page.njk" %}
 
+{% block title %}
+  <h1>{{ year }}</h1>
+{% endblock %}
+
 {% block content %}
   <ul>
   {% for article in collections.content %}
     {% if article.date | date('YYYY') == year %}
-    <li>{{ article.data.type.title }}: <a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
+    <li>{{ article.data.page.collectionTitle }}: <a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
     {% endif %}
   {% endfor %}
   </ul>

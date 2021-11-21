@@ -10,8 +10,11 @@ pagination:
 ---
 {% extends "../../layouts/page.njk" %}
 
-{% block content %}
+{% block title %}
   <h1>{{ tag.title | title }}</h1>
+{% endblock %}
+
+{% block content %}
   {% if tagsMeta[tag.title] %}{{ tagsMeta[tag.title] }}{% endif %}
   <ul>
   {% for article in collections[tag.title] | reverse %}
