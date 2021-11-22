@@ -38,6 +38,7 @@
         {{ renderPhotos(photo) }}
       {% endif %}
     {% endif %}
+    <hr>
   </div>
 {% endblock %}
 
@@ -54,13 +55,16 @@
   {%- endfor -%}
 
 {% block pageNavigation %}
-  <nav aria-label="tags" class="tags">
+  {% if tags %}
+  <nav aria-labelledby="tagTitle" class="tags">
+    <h3 id="tagTitle">Tags</h3>
     <ul>
       {% for tag in tags %}
-        <li><a href="/tags/{{ tag | slug }}" rel="tag">{{ tag }}</a></li>
+        <li><a href="/tags/{{ tag | slug }}" rel="tag">{{ tag | title }}</a></li>
       {% endfor %}
     </ul>
   </nav>
+  {% endif %}
   <nav aria-label="pagination" class="prevNext">
     <ul>
       {% if prevPost %}<li class="prev">
