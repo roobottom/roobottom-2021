@@ -1,0 +1,19 @@
+.tags {
+  .container();
+  max-width: var(--line-length);
+  margin-top: var(--space-m);
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li {
+    list-style: none;
+    margin-right: var(--space-xs);
+    &:before {
+      content: "#";
+    }
+  }
+  a {
+    #type.style.link;
+  }
+}

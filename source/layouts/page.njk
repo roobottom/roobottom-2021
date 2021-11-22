@@ -54,17 +54,25 @@
   {%- endfor -%}
 
 {% block pageNavigation %}
-  <nav aria-label="tags">
+  <nav aria-label="tags" class="tags">
     <ul>
       {% for tag in tags %}
         <li><a href="/tags/{{ tag | slug }}" rel="tag">{{ tag }}</a></li>
       {% endfor %}
     </ul>
   </nav>
-  <nav aria-label="pagination">
+  <nav aria-label="pagination" class="prevNext">
     <ul>
-      {% if prevPost %}<li>Previous {{ type.title }}: <a href="{{ prevPost.url }}" rel="prev">{{ prevPost.data.title }}</a></li>{% endif %}
-      {% if nextPost %}<li>Next {{ type.title }}: <a href="{{ nextPost.url }}" rel="next">{{ nextPost.data.title }}</a></li>{% endif %}
+      {% if prevPost %}<li class="prev">
+        <h3>Previous {{ page.collectionTitle | lower }}</h3>
+        <a href="{{ prevPost.url }}" rel="prev">{{ prevPost.data.title }}</a>
+        <time datetime="{{ prevPost.date | date('') }}">{{ prevPost.date | date() }}</time>
+      </li>{% endif %}
+      {% if nextPost %}<li class="next">
+        <h3>Next {{ page.collectionTitle | lower }}</h3>
+        <a href="{{ nextPost.url }}" rel="next">{{ nextPost.data.title }}</a>
+        <time datetime="{{ nextPost.date | date('') }}">{{ nextPost.date | date() }}</time>
+      </li>{% endif %}
     </ul>
   </nav>
 {% endblock %}

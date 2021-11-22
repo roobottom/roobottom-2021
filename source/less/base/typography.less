@@ -43,20 +43,20 @@
     }
   }
   .style() {
-    .link() {
+    .link(@underline: var(--c-text), @hover: var(--c-pink), @outline: black) {
       color: var(--c-text);
-      text-decoration: var(--c-pink-30) underline;
-      padding: var(--space-xs);
-      margin: calc(-1 * var(--space-xs));
+      text-decoration: @underline underline;
+      padding: var(--space-xxs);
+      margin: calc(-1 * var(--space-xxs));
 
       &:hover {
-        color: var(--c-pink);
-        text-decoration-color: var(--c-pink);
+        color: @hover;
+        text-decoration-color: @hover;
       }
       &:focus {
-        outline: 1px dotted black;
-        color: var(--c-pink);
-        text-decoration-color: var(--c-pink);
+        outline: 1px dotted @outline;
+        color: @hover;
+        text-decoration-color: @hover;
       }
     }
   }
