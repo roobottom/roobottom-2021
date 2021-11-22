@@ -18,6 +18,7 @@
     
     @media @bp[mid] {
       flex-direction: row;
+      align-items: baseline;
     }
   }
 
@@ -30,12 +31,16 @@
 
   &-meta {
     color: var(--c-text-hint);
+    display: flex;
+    flex-direction: column;
+    font-size: var(--step--1);
     
     @media @bp[mid] {
       width: 35%;
       text-align: right;
       margin-right: var(--space-s);
     }
+
   }
 
 }

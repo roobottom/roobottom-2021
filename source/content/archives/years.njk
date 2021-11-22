@@ -8,6 +8,7 @@ pagination:
   size: 1
   alias: year
 ---
+{% from "../../../lib/components/posts.njk" import renderAPost as renderAPost %}
 {% extends "../../layouts/page.njk" %}
 
 {% block title %}
@@ -15,11 +16,13 @@ pagination:
 {% endblock %}
 
 {% block content %}
-  <ul>
+  <div class="container container--prose">
+  <dl class="summary-list">
   {% for article in collections.content %}
     {% if article.date | date('YYYY') == year %}
-    <li>{{ article.data.page.collectionTitle }}: <a href="{{ article.url }}">{{ article.data.title }}, {{ article.date | date }}</a></li>
+      {{ renderAPost (article, [article.data.page.collectionTitle]) }}
     {% endif %}
   {% endfor %}
-  </ul>
+  </dl>
+  </div>
 {% endblock %}

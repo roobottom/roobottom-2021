@@ -17,9 +17,9 @@
   <p class="lead">Elsewhere, I run a small design consultancy called <a href="https://roodesign.co.uk">Roodesign</a>. You should go there if you want user-centred design stuff. </p>
   <p class="lead">— <a href="/about/">Jon Roobottom</a></p>
 </div>
-<div class="polaroids">
+<div class="gallery">
   {% for post in collections.diary | subset(5) %}
-    {% img post.data.photo[0].url, {alt: post.data.photo[0].alt or post.data.summary} %}
+    {% figure post.data.photo[0].url %}
   {% endfor %}
 </div>
 {% endblock %}
