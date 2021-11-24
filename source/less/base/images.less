@@ -53,14 +53,86 @@ figcaption {
         transform: translateY(calc(var(--space-s) / 2));
       }
     }
-  }
-
-  
+  } 
 
   @media @bp[max] {
     figure {
       max-width: 33.33%;
 
     }
+  }
+
+}
+
+.polaroids {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-l);
+
+  li {
+    list-style: none;
+    min-width: 180px;
+  }
+
+  li:nth-child(1) a {
+    transform: 
+    translateY(calc(-1 * var(--space-s) / 2))
+    rotate(1deg);
+  }
+
+  li:nth-child(2) a {
+    transform: 
+      translateY(calc(var(--space-s) / 2))
+      rotate(-2deg);
+  }
+
+  li:nth-child(3) a {
+    transform: 
+      rotate(2deg);
+  }
+
+  li:nth-child(4) a {
+    transform: 
+      rotate(-1deg);
+  }
+
+  li:nth-child(5) a {
+    transform: 
+      translateY(calc(var(--space-s) / 2))
+      rotate(3deg);
+  }
+
+  a {
+    display: block;
+    background-color: white;
+    padding: calc(var(--space-s) / 2);
+    margin: 0 calc(-1 * var(--space-s) / 2);
+    transition: transform .3s ease-out;
+    box-shadow: 0 0 10px fade(black,10%);
+
+    &:hover,
+    &:focus {
+      transform: 
+      translateY(0)
+      rotate(0)
+      scale(1.1) !important;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 30px fade(black,30%);
+    }
+
+    &:focus {
+      outline: 3px dashed var(--c-pink);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  @media @bp[mid] {
+    flex-wrap: nowrap;
   }
 }
