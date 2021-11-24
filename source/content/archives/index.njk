@@ -5,20 +5,29 @@ permalink: "/archives/"
 ---
 {% extends "../../layouts/page.njk" %}
 
-{% block content %}
+{% block title %}
   <h1>{{ title }}</h1>
+{% endblock %}
 
-  <h2>Explore content by year</h2>
-  <ol>
+{% block content %}
+<div class="container">
+  <h2 class="explore-heading">Explore my content by year</h2>
+  <ol class="explore">
   {% for year in collections.years %}
-    <li><a href="/archives/{{ year }}">{{ year }}</a></li>
+    <li><h3><a href="/archives/{{ year }}">{{ year }}</a></h3></li>
   {% endfor %}
   </ol>
 
-  <h2>Explore content by tag</h2>
-  <ul>
+  <h2 class="explore-heading">Explore my content by tag</h2>
+  <ul class="explore">
   {% for tag in collections.tags %}
-    <li><a href="/tags/{{ tag.title | slug }}">{{ tag.title | title }}</a> - {{ tag.count }} {{ 'item' | plural(tag.count) }}</li>
+    <li>
+      <a href="/tags/{{ tag.title | slug }}">
+        <h3>{{ tag.title | title }}</h3>
+        <span class="meta">{{ tag.count }} {{ 'item' | plural(tag.count) }}</span>
+      </a>
+     </li>
   {% endfor %}
   </ul>
+</div>
 {% endblock %}

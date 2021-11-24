@@ -1,6 +1,5 @@
 ---
 tags:
-- coronavirus
 - rootwo
 - roo
 date: '2021-10-03'

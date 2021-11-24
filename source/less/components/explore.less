@@ -1,0 +1,45 @@
+.explore {
+
+  &-heading {
+    text-align: center;
+    margin-bottom: var(--space-m);
+  }
+
+  display: grid;
+  margin-bottom: var(--space-xxl);
+  gap: var(--space-xxs);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+  
+  li {
+    list-style: none;
+  }
+
+  a {
+    padding: var(--space-s);
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: var(--c-pink);
+    }
+
+    &:focus {
+      outline: 1px dashed black;
+      color: var(--c-pink);
+    }
+
+  }
+
+  
+
+  h3 {
+    .h4;
+  }
+
+  .meta {
+    color: var(--c-text-hint);
+  }
+}

@@ -2,7 +2,7 @@
   margin-bottom: var(--space-l);
   
   a {
-    #type.style.link;
+    #type.style.link(@underline: var(--c-border));
   }
 
   &-heading {
@@ -14,7 +14,12 @@
   &-row {
     display: flex;
     flex-direction: column;
+    padding-bottom: var(--space-s);
     margin-bottom: var(--space-s);
+    border-bottom: 1px solid var(--c-border);
+    &:last-child {
+      border-bottom: none;
+    }
     
     @media @bp[mid] {
       flex-direction: row;
