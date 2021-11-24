@@ -68,11 +68,12 @@ figcaption {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   margin-top: var(--space-l);
 
   li {
     list-style: none;
-    min-width: 180px;
+    max-width: 280px;
   }
 
   li:nth-child(1) a {
@@ -132,7 +133,4 @@ figcaption {
     display: block;
   }
 
-  @media @bp[mid] {
-    flex-wrap: nowrap;
-  }
 }
