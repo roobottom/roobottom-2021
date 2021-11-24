@@ -45,7 +45,9 @@
   .style() {
     .link(@underline: var(--c-text), @hover: var(--c-pink), @outline: black) {
       color: var(--c-text);
-      text-decoration: @underline underline;
+      text-decoration-line: underline;
+      text-decoration-color: @underline;
+      -webkit-text-decoration-style: solid;
       padding: var(--space-xxs);
       margin: calc(-1 * var(--space-xxs));
 
