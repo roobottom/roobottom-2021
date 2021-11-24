@@ -4,6 +4,11 @@
       @max: @type-max-size * @modifier;
       --space-@{name}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
   }
+  .range(@attr, @min-name, @max-name) {
+    @min: @type-min-size * @spaceSizes[@@min-name];
+    @max: @type-max-size * @spaceSizes[@@max-name];
+    @{attr}: calc((unit((@min/@base), rem)) + (@max - @min) *var(--fluid-bp));
+  }
 }
 
 :root {
