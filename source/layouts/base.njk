@@ -54,14 +54,21 @@
   <footer>
     {% block footer %}
     {% endblock %}
-    {# <h2><code>page</code> Data:</h2>
+
+    {% if global.env == 'dev' %}
+    <h2><code>page</code> Data:</h2>
     <pre>{{ page | dump(2) }}</pre>
 
     <h2><code>eleventy</code> Data:</h2>
     <pre>{{ eleventy | dump(2) }}</pre>
 
     <h2><code>openGraph</code> Data:</h2>
-    <pre>{{ openGraph | dump(2) }}</pre> #}
+    <pre>{{ openGraph | dump(2) }}</pre>
+
+    <h2>Installed packages:</h2>
+    <pre>{{ pkg.dependencies | dump(2) }}</pre>
+    {% endif %}
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170 10" preserveAspectRatio="none" height="10px" width="100%">
       <path d="M0 0h117v10H0z" class="segment-1"/>
       <path d="M117 0h117v10H117z" class="segment-2"/>

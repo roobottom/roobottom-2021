@@ -49,6 +49,7 @@ module.exports = function (eleventyConfig) {
 
 //** filters
   eleventyConfig.addFilter('date', require('./lib/filters/date.js'))
+  eleventyConfig.addFilter('dateSince', require('./lib/filters/date-since.js'))
   eleventyConfig.addFilter('slug_date', require('./lib/filters/slug-date.js')) //this is only used in redirects
   eleventyConfig.addFilter('shuffle', require('./lib/filters/shuffle.js'))
   eleventyConfig.addFilter('subset', require('./lib/filters/subset.js'))
