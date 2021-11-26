@@ -1,5 +1,5 @@
 ---
-summary: A day in Made Tech's office
+summary: A day in London
 date: 2021-11-25
 tags:
   - work
@@ -15,7 +15,7 @@ photo:
 ---
 Today was the fist time I've commuted to London for three years. But it all still felt familiar, especially the inefficient, smelly Southern Rail trains. 
 
-Familiar but different: I'm now part of [Made Tech](https://madetech.com) working on a project for DLUHC. What we're tentatively calling "Log social sales and lettings (CORE)" is a service to collect data about social housing. The team — made up of Made Tech people and civil servants — is fantastic. Today was the first time many of us had met in person. It could have felt awkward, but absolutely did not. It was so great to see everyone in the flesh and to spend time collaborating in a way that's impossible with remote tools.
+Familiar but different: I'm now part of [Made Tech](https://madetech.com) working on a project for DLUHC. What we're tentatively calling "Log social sales and lettings (CORE)" is a service to collect data about social housing. Today was the first time many of us had met in person. It could have felt awkward, but absolutely did not. It was so great to see everyone in the flesh and to spend time collaborating in a way that's impossible with remote tools.
 
 Later we played games, went for dinner and Sarah surprised everyone with handmade gifts. I feel exhausted after a day in London, but it was oh so worth it. 
 
