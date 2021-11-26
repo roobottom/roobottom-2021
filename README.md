@@ -1,6 +1,6 @@
 # Jon's website
 
-Build with 11ty.
+Built with 11ty.
 
 ## Local setup
 
