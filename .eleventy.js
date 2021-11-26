@@ -57,6 +57,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("slugify", require('./lib/filters/slugify.js'))
   eleventyConfig.addFilter("hangingPunctuation", require('./lib/filters/hanging-punctuation.js'))
   eleventyConfig.addFilter("firstSentence", require('./lib/filters/first-sentence.js'))
+  eleventyConfig.addFilter("smartypants", require('./lib/filters/smartypants.js'))
 
 //** static files
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
