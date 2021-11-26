@@ -11,7 +11,7 @@
   {% if page.navigationId != 'homepage' %}
   <div class="title">
   {% block title %}
-    <h1>{{ title | smartypants | safe }}</h1>
+    <h1>{{ title | safe }}</h1>
     {% if not hideDate %}
     <time datetime="{{ date | date('') }}">{{ date | date }}</time>
     {% endif %}
@@ -69,12 +69,12 @@
     <ul>
       {% if prevPost %}<li class="prev">
         <h3>Previous {{ page.collectionTitle | lower }}</h3>
-        <a href="{{ prevPost.url }}" rel="prev">{{ prevPost.data.title }}</a>
+        <a href="{{ prevPost.url }}" rel="prev">{{ prevPost.data.title | safe }}</a>
         <time datetime="{{ prevPost.date | date('') }}">{{ prevPost.date | date() }}</time>
       </li>{% endif %}
       {% if nextPost %}<li class="next">
         <h3>Next {{ page.collectionTitle | lower }}</h3>
-        <a href="{{ nextPost.url }}" rel="next">{{ nextPost.data.title }}</a>
+        <a href="{{ nextPost.url }}" rel="next">{{ nextPost.data.title | safe }}</a>
         <time datetime="{{ nextPost.date | date('') }}">{{ nextPost.date | date() }}</time>
       </li>{% endif %}
     </ul>

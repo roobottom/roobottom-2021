@@ -1,6 +1,7 @@
 const slugDate = require('../../../lib/filters/slug-date.js')
 const date = require('../../../lib/filters/date.js')
 const openGraph = require('../../data/openGraph.js')
+const smartypants = require('smartypants')
 
 module.exports = {
   layout: 'page.njk',
@@ -11,7 +12,7 @@ module.exports = {
   },
   eleventyComputed: {
     title: data => { 
-      return data.summary === undefined || data.summary === '' ? `Diary entry for ${date(data.date)}` : data.summary
+      return data.summary === undefined || data.summary === '' ? `Diary entry for ${date(data.date)}` : smartypants.smartypants(data.summary, 1)
     },
     permalink: data => `/diary/${slugDate(data.date)}-${data.page.fileSlug}/`,
     openGraph: data => {

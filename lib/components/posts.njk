@@ -1,7 +1,7 @@
 {% macro renderAPost (post, metaObject) %}
   <div class="summary-list-row">
     <dt class="summary-list-title">
-      <h3><a href="{{ post.url }}">{{ post.data.title | smartypants | safe }}</a></h3>
+      <h3><a href="{{ post.url }}">{{ post.data.title | safe }}</a></h3>
       <p>{{ post.templateContent | firstSentence | striptags }}</p>
     </dt>
     <dd class="summary-list-meta">

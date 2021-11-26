@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Jon Roobottom’s personal website">
     <meta name="robots" content="index, follow">
-    <title>{{ title }} - Jon Roobottom’s website</title>
+    <title>{{ title | safe }} - Jon Roobottom’s website</title>
 
     <!-- Identity/endpoints -->
     <link rel="me" href="https://github.com/roobottom">
@@ -20,7 +20,7 @@
 		<meta property="og:url" content="https://roobottom.com/">
 		<meta property="og:site_name" content="Jon’s website">
 		<meta property="og:locale" content="en_GB">
-		<meta property="og:title" content="{{ title }}">
+		<meta property="og:title" content="{{ title | safe }}">
 		<meta property="og:description" content="{{ openGraph.description }}">
 		<meta property="og:image:width" content="1280">
 		<meta property="og:image:height" content="640">
@@ -28,9 +28,9 @@
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:site" content="@roobottom">
+		<meta property="twitter:creator" content="@roobottom">
 		<meta property="twitter:url" content="https://roobottom.com">
-		<meta property="twitter:title" content="{{ title }}">
+		<meta property="twitter:title" content="{{ title | safe }}">
 		<meta property="twitter:description" content="{{ openGraph.description }}">
 		<meta property="twitter:image" content="{{ openGraph.image }}">
 		<meta property="twitter:image:alt" content="{{ openGraph.imageAlt }}">
@@ -56,8 +56,11 @@
     {% endblock %}
 
     {% if global.env == 'dev' %}
-    <h2><code>page</code> Data:</h2>
+    <h2><code>PENIS</code> Data:</h2>
     <pre>{{ page | dump(2) }}</pre>
+
+    <h2>Frontmatter:</h2>
+    <pre>{{ title }}</pre>
 
     <h2><code>eleventy</code> Data:</h2>
     <pre>{{ eleventy | dump(2) }}</pre>

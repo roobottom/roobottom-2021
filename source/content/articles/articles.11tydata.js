@@ -1,6 +1,7 @@
 const slugDate = require('../../../lib/filters/slug-date.js')
 const slugify = require('../../../lib/filters/slugify.js')
 const openGraph = require('../../data/openGraph.js')
+const smartypants = require('smartypants')
 
 module.exports = {
   layout: 'page.njk',
@@ -10,6 +11,7 @@ module.exports = {
     navigationId: 'articles'
   },
   eleventyComputed: {
+    title: data => smartypants.smartypants(data.title, 1),
     permalink: data => `/articles/${slugDate(data.date)}-${slugify(data.title)}/`,
     openGraph: data => {
       return {
