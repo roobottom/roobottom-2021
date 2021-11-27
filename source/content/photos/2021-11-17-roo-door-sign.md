@@ -5,7 +5,7 @@ photo:
     alt: A sign on Roo’s door reads “Only girls and unicorns allowed in (and my brother) (and puppies)”
 tags:
   - roo
-  - stuff roo drew
+  - stuff roo made
 ---
 I've decided to start posting pictures the kids draw. They're very cute and I think I'll enjoy looking back on them. 
 

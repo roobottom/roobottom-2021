@@ -6,6 +6,6 @@ photo:
     alt: Roo's drawing of a boy in need of a new bum
 tags:
   - roo
-  - stuff roo drew
+  - stuff roo made
 ---
 This one made me laugh a lot. Roo drew a boy in need of a new bum after we borrowed ["I need a new bum"](https://www.goodreads.com/book/show/16092697-i-need-a-new-bum) from the library. 
