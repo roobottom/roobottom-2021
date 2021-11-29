@@ -1,29 +1,19 @@
 body>footer {
   .container();
-  .copyright {
-    text-align: center;
-  }
-  svg {
-    .segment-1 {
-      transform: scaleX(200%);
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--step--1);
+
+  nav {
+    ul {
+      display: flex;
     }
-    .segment-1,
-    .segment-5,
-    .segment-9 {
-      fill: var(--c-yellow);
+    li {
+      list-style: none;
     }
-    .segment-2,
-    .segment-6,
-    .segment-10 {
-      fill: var(--c-orange);
-    }
-    .segment-3,
-    .segment-7 {
-      fill: var(--c-blue);
-    }
-    .segment-4,
-    .segment-8 {
-      fill: var(--c-pink);
+    a {
+      #type.style.link;
     }
   }
+
 }

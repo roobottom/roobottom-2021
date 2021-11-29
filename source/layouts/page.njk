@@ -83,6 +83,10 @@
 {% endif %}
 
 {% block footer %}
-  <p class="copyright">&copy; Copyright, {{ collections.stats.allPosts.earliest | date('YYYY') }} to {{ collections.stats.allPosts.latest | date('YYYY') }} Jon Roobottom</p>
-  <p><a href="{{ page.github }}">Edit this page</a></p>
+  <p class="copyright">&copy; {{ collections.stats.allPosts.earliest | date('YYYY') }} — {{ collections.stats.allPosts.latest | date('YYYY') }}</p>
+  <nav>
+    <ul>
+      <li><a href="{{ page.github }}">Edit this page</a></li>
+    </ul>
+  </nav>
 {% endblock %}
