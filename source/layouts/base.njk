@@ -55,20 +55,6 @@
     {% block footer %}
     {% endblock %}
 
-    {% if global.env == 'dev' %}
-    <h2><code>page</code> Data:</h2>
-    <pre>{{ page | dump(2) }}</pre>
-
-    <h2><code>eleventy</code> Data:</h2>
-    <pre>{{ eleventy | dump(2) }}</pre>
-
-    <h2><code>openGraph</code> Data:</h2>
-    <pre>{{ openGraph | dump(2) }}</pre>
-
-    <h2>Installed packages:</h2>
-    <pre>{{ pkg.dependencies | dump(2) }}</pre>
-    {% endif %}
-
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170 10" preserveAspectRatio="none" height="10px" width="100%">
       <path d="M0 0h117v10H0z" class="segment-1"/>
       <path d="M117 0h117v10H117z" class="segment-2"/>
@@ -84,5 +70,26 @@
   </footer>
   {% block scripts %}
   {% endblock %}
+
+  {% if global.env == 'dev' %}
+    <h2><code>page</code> Data:</h2>
+    <pre>{{ page | dump(2) }}</pre>
+
+    <h2><code>global</code> Data:</h2>
+    <pre>{{ global | dump(2) }}</pre>
+
+    <h2><code>eleventy</code> Data:</h2>
+    <pre>{{ eleventy | dump(2) }}</pre>
+
+    <h2><code>openGraph</code> Data:</h2>
+    <pre>{{ openGraph | dump(2) }}</pre>
+
+    <h2><code>github</code> Data:</h2>
+    <pre>{{ github | dump(3) }}</pre>
+
+    <h2>Installed packages:</h2>
+    <pre>{{ pkg.dependencies | dump(2) }}</pre>
+  {% endif %}
+
 </body>
 </html>
