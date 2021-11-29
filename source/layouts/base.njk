@@ -54,13 +54,28 @@
   <footer>
     {% block footer %}
     {% endblock %}
+  </footer>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170 10" preserveAspectRatio="none" height="70px" width="100%" class="fin" aria-hidden="true">
+    <path d="M0 0h117v10H0z" class="segment-1"/>
+    <path d="M117 0h117v10H117z" class="segment-2"/>
+    <path d="M234 0h117v10H234z" class="segment-3"/>
+    <path d="M351 0h117v10H351z" class="segment-4"/>
+    <path d="M468 0h117v10H468z" class="segment-5"/>
+    <path d="M585 0h117v10H585z" class="segment-6"/>
+    <path d="M702 0h117v10H702z" class="segment-7"/>
+    <path d="M819 0h117v10H819z" class="segment-8"/>
+    <path d="M936 0h117v10H936z" class="segment-9"/>
+    <path d="M1053 0h117v10H1053z" class="segment-10"/>
+  </svg>
+  {% block scripts %}
+  {% endblock %}
 
-    {% if global.env == 'dev' %}
-    <h2><code>Page</code> Data:</h2>
+  {# {% if global.env == 'dev' %}
+    <h2><code>page</code> Data:</h2>
     <pre>{{ page | dump(2) }}</pre>
 
-    <h2>Frontmatter:</h2>
-    <pre>{{ title }}</pre>
+    <h2><code>global</code> Data:</h2>
+    <pre>{{ global | dump(2) }}</pre>
 
     <h2><code>eleventy</code> Data:</h2>
     <pre>{{ eleventy | dump(2) }}</pre>
@@ -68,24 +83,12 @@
     <h2><code>openGraph</code> Data:</h2>
     <pre>{{ openGraph | dump(2) }}</pre>
 
+    <h2><code>github</code> Data:</h2>
+    <pre>{{ github | dump(3) }}</pre>
+
     <h2>Installed packages:</h2>
     <pre>{{ pkg.dependencies | dump(2) }}</pre>
-    {% endif %}
+  {% endif %} #}
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170 10" preserveAspectRatio="none" height="10px" width="100%">
-      <path d="M0 0h117v10H0z" class="segment-1"/>
-      <path d="M117 0h117v10H117z" class="segment-2"/>
-      <path d="M234 0h117v10H234z" class="segment-3"/>
-      <path d="M351 0h117v10H351z" class="segment-4"/>
-      <path d="M468 0h117v10H468z" class="segment-5"/>
-      <path d="M585 0h117v10H585z" class="segment-6"/>
-      <path d="M702 0h117v10H702z" class="segment-7"/>
-      <path d="M819 0h117v10H819z" class="segment-8"/>
-      <path d="M936 0h117v10H936z" class="segment-9"/>
-      <path d="M1053 0h117v10H1053z" class="segment-10"/>
-    </svg>
-  </footer>
-  {% block scripts %}
-  {% endblock %}
 </body>
 </html>
