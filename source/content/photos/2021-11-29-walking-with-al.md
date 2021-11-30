@@ -10,7 +10,6 @@ photo:
   - url: /images/photos/2021-11-29-fod3n.jpg
     alt: "The sun rising over Middlemead, Littlehampton "
 ---
-
 I’ve been taking Monday morning walks with my friend Al since lockdown one. We chat about all kinds of stuff; it’s a lovely way to start the week. 
 
 This morning was particularly glorious as we’d had a dusting of snow overnight. 
