@@ -3,6 +3,7 @@ const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItDiv = require('markdown-it-div')
 const markdownItAbbr = require('markdown-it-abbr')
+const pluginRss = require("@11ty/eleventy-plugin-rss")
 
 module.exports = function (eleventyConfig) {
 
@@ -68,6 +69,9 @@ module.exports = function (eleventyConfig) {
 //** watch lib
   eleventyConfig.addWatchTarget("./lib/**/*.js")
   eleventyConfig.addWatchTarget("./lib/**/*.njk")
+
+//** plugins
+  eleventyConfig.addPlugin(pluginRss)
 
 //**  11ty core settings 
   return {
