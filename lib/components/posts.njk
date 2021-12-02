@@ -5,7 +5,7 @@
       <p>{{ post.templateContent | firstSentence | striptags }}</p>
     </dt>
     <dd class="summary-list-meta">
-      <time class="quiet" datetime="{{ post.date | date('') }}">{{ post.date | date }}</time>
+      <time class="quiet" datetime="{{ post.date | date('') }}">{{ post.date | date('D MMMM YYYY', true) }}</time>
       {% if metaObject %}
       {% for meta in metaObject %}
       <span class="summary-list-metaitem">{{ meta }}</span>

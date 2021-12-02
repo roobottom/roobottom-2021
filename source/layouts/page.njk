@@ -13,7 +13,7 @@
   {% block title %}
     <h1>{{ title | safe }}</h1>
     {% if not hideDate %}
-    <time datetime="{{ date | date('') }}">{{ date | date }}</time>
+    <time datetime="{{ date | date('') }}">{{ date | date('D MMMM YYYY', true) }}</time>
     {% endif %}
   {% endblock %}
   </div>
