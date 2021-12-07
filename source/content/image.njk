@@ -1,0 +1,21 @@
+---
+eleventyExcludeFromCollections: true
+permalink: "/{{ image.relative }}-preview.html"
+eleventyComputed:
+  title: "{{ image.name }}"
+pagination:
+  data: images
+  alias: image
+  size: 1
+---
+{% extends "../layouts/page.njk" %}
+
+{% block title %}<h1 class="h3">{{ title }}.</h1>{% endblock %}
+
+{% block content %}
+  <div class="container">
+  {% img image.relative, {
+    alt: 'preview for '+ image.name + ' - sorry there is not better alternative text, I am working on it.'
+  }, 'superwide' %}
+  </div>
+{% endblock %}
