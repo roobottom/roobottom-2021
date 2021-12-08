@@ -10,12 +10,25 @@ pagination:
 ---
 {% extends "../layouts/page.njk" %}
 
-{% block title %}<h1 class="h3">{{ title }}.</h1>{% endblock %}
+{% block title %}{% endblock %}
 
 {% block content %}
   <div class="container">
+  
   {% img image.relative, {
     alt: 'preview for '+ image.name + ' - sorry there is not better alternative text, I am working on it.'
   }, 'superwide' %}
+
+  <div class="prose">
+  <dl class="summary-list">
+    {% for tagName, tagContent in image.exif %}
+      <div class="summary-list-row">
+        <dt class="summary-list-title"><h3>{{ tagContent }}</h3></dt>
+        <dd class="summary-list-meta">{{ tagName }}</dd>
+      </div>
+    {% endfor %}
+  </dl>
+  </div>
+
   </div>
 {% endblock %}
