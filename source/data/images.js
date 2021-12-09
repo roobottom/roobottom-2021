@@ -25,8 +25,29 @@ async function getImages () {
     enrichedImages.push({
       file: image,
       relative: image.replace(base, ''),
+      relativeDir: path.parse(image).dir.replace(base, ''),
       ...path.parse(image),
-      exif: exif
+      exif: {
+        gps: {
+          latitude: exif.GPSLatitude,
+          longitude: exif.GPSLongitude,
+
+        },
+        settings: {
+          iso: exif.ISO,
+          speed: exif.ShutterSpeedValue,
+          aperture: exif.ApertureValue,
+          flash: exif.Flash,
+        },
+        camera: {
+          model: exif.Model,
+          lens: exif.LensModel
+        },
+        file: {
+          size: exif.FileSize,
+          date: exif.CreateDate
+        }
+      }
     })
   }
 

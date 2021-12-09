@@ -1,8 +1,8 @@
 ---
 eleventyExcludeFromCollections: true
-permalink: "/{{ image.relative }}-preview.html"
+permalink: "/{{ image.relativeDir }}/{{ image.name }}/"
 eleventyComputed:
-  title: "{{ image.name }}"
+  title: "{{ image.base }}"
 pagination:
   data: images
   alias: image
@@ -10,13 +10,13 @@ pagination:
 ---
 {% extends "../layouts/page.njk" %}
 
-{% block title %}{% endblock %}
+{% block title %}<h1>{{ title }}</h2>{% endblock %}
 
 {% block content %}
   <div class="container">
   
   {% img image.relative, {
-    alt: 'preview for '+ image.name + ' - sorry there is not better alternative text, I am working on it.'
+    alt: 'preview for '+ image.name
   }, 'superwide' %}
 
   <div class="prose">
