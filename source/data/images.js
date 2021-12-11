@@ -2,6 +2,7 @@ require('dotenv').config()
 const glob = require("glob")
 const path = require("path")
 const exiftool = require("exiftool-vendored").exiftool
+const moment = require("moment")
 const base = 'source/'
 
 async function getExif (file) {
@@ -18,13 +19,7 @@ async function getImages () {
   let enrichedImages = []
   
   for (image of images) {
-    /* getting exif data is very costly, only do that in production */
-    //let exif = process.env.NODE_ENV === 'dev' ? {} : await getExif(image)
     let exif = await getExif(image)
-    let gps = exif.GPSLatitude && exif.GPSLongitude ? {
-      latitude: exif.GPSLatitude,
-      longitude: exif.GPSLongitude,
-    } : null
 
     enrichedImages.push({
       file: image,
@@ -32,20 +27,17 @@ async function getImages () {
       relativeDir: path.parse(image).dir.replace(base, ''),
       ...path.parse(image),
       exif: {
-        gps: gps,
-        settings: {
-          iso: exif.ISO,
-          speed: exif.ShutterSpeedValue,
-          aperture: exif.ApertureValue,
-          flash: exif.Flash,
-        },
-        camera: {
-          model: exif.Model,
-          lens: exif.LensModel
-        },
-        file: {
-          date: exif.CreateDate
-        }
+        location: exif.GPSLatitude && exif.GPSLongitude ? {
+          latitude: exif.GPSLatitude,
+          longitude: exif.GPSLongitude
+        } : null,
+        iso: exif.ISO ? exif.ISO : null,
+        speed: exif.ShutterSpeedValue ? exif.ShutterSpeedValue : null,
+        aperture: exif.ApertureValue ? exif.ApertureValue : null,
+        flash: exif.Flash ? exif.Flash : null,
+        camera: exif.Model ? exif.Model : null,
+        lens: exif.LensModel ? exif.LensModel : null,
+        date: exif.CreateDate ? moment(exif.CreateDate, 'YYYY-MM-DDHH:mm').format('D MMMM YYYY, h:mma') : null
       }
     })
   }
@@ -55,5 +47,5 @@ async function getImages () {
 }
 
 module.exports = function () {
-  return getImages()
+  return process.env.NODE_ENV === 'dev' ? [] : getImages()
 }

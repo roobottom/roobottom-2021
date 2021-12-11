@@ -10,59 +10,34 @@ pagination:
 ---
 {% extends "../layouts/page.njk" %}
 
-{% block head %}
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
-{% endblock %}
-
-{% block scripts %}
-<script>
-  var map = L.map('map', {
-    center: [{{ image.exif.gps.latitude }}, {{ image.exif.gps.longitude }}],
-    zoom: 18
-  })
-  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 22,
-    id: 'mapbox/streets-v11',
-    accessToken: 'pk.eyJ1Ijoicm9vYm90dG9tIiwiYSI6ImNrd3psN2Y3eTBqbGgyb255aDZqb2VtNzYifQ.7lfAsYuxeSiP7pzRC2Ya8w'
-  }).addTo(map)
-  var marker = L.marker([{{ image.exif.gps.latitude }}, {{ image.exif.gps.longitude }}]).addTo(map)
-</script>
-{% endblock %}
-
 {% block title %}{% endblock %}
 
 {% block content %}
-  <div class="container">
-  
-  {% img image.relative, {
-    alt: 'preview for '+ image.name
-  }, 'superwide' %}
 
-  {% if image.exif.gps.latitude and image.exif.gps.longitude %}
-  <div id="map" style="height: 600px; width: 100%;"></div>
-  {% endif %}
+<div class="container">
+{% img image.relative, {
+  alt: 'preview for '+ image.name,
+  class: 'standalone'
+}, 'superwide' %}
+</div>
 
-  <div class="prose">
-    {% for title, tags in image.exif %}
-    {% if title != 'gps' %}
-      <h2>{{ title }}</h2>
-      <dl class="summary-list">
-        {% for name, value in tags %}
-          <div class="summary-list-row">
-            <dt class="summary-list-title"><h3>{{ value }}</h3></dt>
-            <dd class="summary-list-meta">{{ name }}</dd>
-          </div>
-        {% endfor %}
-      </dl>
-      {% endif %}
+{% macro listRow (key, value) %}
+<div class="summary-list-row">
+  <dt class="summary-list-title h4">{{ value | safe }}</dt>
+  <dd class="summary-list-meta">{{ key }}</dd>
+</div>
+{% endmacro %}
+
+<div class="container container--prose">
+  <dl class="summary-list">
+    {% for key, value in image.exif %}
+      {% if key == 'location' %}
+        {{ listRow (key, '<a href="https://www.openstreetmap.org/?mlat='+value.latitude+'&mlon='+value.longitude+'&zoom=18" target="_blank">View in Open Street Map (opens in a new tab)</a>') }}
+      {% else %}
+        {{ listRow (key, value) }}
+      {% endif %}  
     {% endfor %}
-  </div>
+  </dl>
+</div>
 
-  </div>
 {% endblock %}
