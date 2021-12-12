@@ -21,23 +21,4 @@ pagination:
 }, 'superwide' %}
 </div>
 
-{% macro listRow (key, value) %}
-<div class="summary-list-row">
-  <dt class="summary-list-title h4">{{ value | safe }}</dt>
-  <dd class="summary-list-meta">{{ key }}</dd>
-</div>
-{% endmacro %}
-
-<div class="container container--prose">
-  <dl class="summary-list">
-    {% for key, value in image.exif %}
-      {% if key == 'location' %}
-        {{ listRow (key, '<a href="https://www.openstreetmap.org/?mlat='+value.latitude+'&mlon='+value.longitude+'&zoom=18" target="_blank">View in Open Street Map (opens in a new tab)</a>') }}
-      {% else %}
-        {{ listRow (key, value) }}
-      {% endif %}  
-    {% endfor %}
-  </dl>
-</div>
-
 {% endblock %}
