@@ -3,6 +3,10 @@ eleventyExcludeFromCollections: true
 permalink: "/{{ image.relativeDir }}/{{ image.name }}/"
 eleventyComputed:
   title: "{{ image.base }}"
+  openGraph:
+    type: "image"
+    description: "{{ image.name }}"
+    image: "{{ openGraph.imageUrlStub }}/{{ image.relative }}"
 pagination:
   data: images
   alias: image
@@ -10,7 +14,7 @@ pagination:
 ---
 {% extends "../layouts/page.njk" %}
 
-{% block title %}{% endblock %}
+{% block title %}{{ image | dump }}{% endblock %}
 
 {% block content %}
 
