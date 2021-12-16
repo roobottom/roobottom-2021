@@ -1,0 +1,16 @@
+---
+eleventyExcludeFromCollections: true
+title: "Listening"
+permalink: "/listening/"
+---
+{% extends "../../layouts/page.njk" %}
+
+{% block title %}
+  <h1>{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <p>{{ stats | dump(2) }}</p>
+  </div>
+{% endblock %}
