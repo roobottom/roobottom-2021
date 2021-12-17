@@ -17,7 +17,7 @@ class RSS {
     const postImages = (images) => {
       let imageArray = []
       for(let image of images) {
-        imageArray.push(`<figure>${img(global.base_url + image.url, {alt: image.alt}, 'square')}</figure>`)
+        imageArray.push(`<figure>${img(image.url, {alt: image.alt}, 'square')}</figure>`)
       }
       return imageArray.join('')
     }
