@@ -1,4 +1,5 @@
 const moment = require('moment')
+const img = require('../../lib/shortcodes/img.js')
 
 class RSS {
   data() {
@@ -16,7 +17,7 @@ class RSS {
     const postImages = (images) => {
       let imageArray = []
       for(let image of images) {
-        imageArray.push(`<figure><img src="${global.base_url}${image.url}" alt="${image.alt}"/></figure>`)
+        imageArray.push(`<figure>${img(global.base_url + image.url, {alt: image.alt}, 'square')}</figure>`)
       }
       return imageArray.join('')
     }
@@ -28,7 +29,7 @@ class RSS {
           <title>${item.data.title}</title>
           <updated>${moment(item.date).format()}</updated>
           <link rel="alternate" href="${global.base_url}${item.url}" type="text/html"/>
-          <content type="html"><![CDATA[${item.templateContent.replaceAll(/\r/g,'')}${postImages(item.data.photo)}]]></content>
+          <content type="html"><![CDATA[${item.templateContent}${postImages(item.data.photo)}]]></content>
         </entry>`)
     }
 
