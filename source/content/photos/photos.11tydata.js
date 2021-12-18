@@ -8,7 +8,8 @@ module.exports = {
   page: {
     collectionId: 'diary',
     collectionTitle: 'Diary post',
-    navigationId: 'diary'
+    navigationId: 'diary',
+    postType: 'photos'
   },
   eleventyComputed: {
     title: data => { 
