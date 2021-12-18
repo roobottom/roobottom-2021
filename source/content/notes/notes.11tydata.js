@@ -1,6 +1,5 @@
 const slugDate = require('../../../lib/filters/slug-date.js')
 const date = require('../../../lib/filters/date.js')
-const openGraph = require('../../data/openGraph.js')
 const smartypants = require('smartypants')
 
 module.exports = {
@@ -9,7 +8,7 @@ module.exports = {
     collectionId: 'diary',
     collectionTitle: 'Diary post',
     navigationId: 'diary',
-    postType: 'photos'
+    postType: 'notes'
   },
   eleventyComputed: {
     title: data => { 
@@ -20,8 +19,8 @@ module.exports = {
       return {
         type: 'article',
         description: data.summary === undefined ? 'Another diary post from the keyboard of Jon Roobottom' : data.summary,
-        image: data.photo[0].url === undefined ? openGraph.image : openGraph.imageUrlStub + data.photo[0].url,
-        imageAlt: data.photo[0].alt === undefined ? `The image for the diary post titled ${data.title}` : data.photo[0].alt
+        image: `https://ik.imagekit.io/roobottom/tr:ot-${encodeURIComponent(data.title.substring(0, 26))},otc-FFFFFF,otw-1280,ots-180,otf-Bely.ttf/og-backgrond.png`,
+        imageAlt: data.title
       }
     }
   }
