@@ -18,7 +18,7 @@
   <p class="lead">— <a href="/about/">Jon Roobottom</a></p>
 </div>
 <ul class="polaroids">
-  {% for post in collections.diary | subset(5) %}
+  {% for post in collections.photos | subset(5) %}
     <li><a href="{{ post.url }}">
       {% if post.data.photo %}
         {% img post.data.photo[0].url, {
