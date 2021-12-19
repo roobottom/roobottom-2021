@@ -29,7 +29,7 @@ class RSS {
           <title>${item.data.title}</title>
           <updated>${moment(item.date).format()}</updated>
           <link rel="alternate" href="${global.base_url}${item.url}" type="text/html"/>
-          <content type="html"><![CDATA[${item.templateContent}${item.data.page.postType === 'photos' ? postImages(item.data.photo) : ''}]]></content>
+          <content type="html"><![CDATA[${item.templateContent}${postImages(item.data.photo)}]]></content>
         </entry>`)
     }
 
