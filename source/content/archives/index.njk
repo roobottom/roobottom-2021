@@ -11,12 +11,13 @@ permalink: "/archives/"
 
 {% block content %}
 <div class="container">
-  <h2 class="explore-heading">Explore my content by year</h2>
+  {# <h2 class="explore-heading">Explore my content by year</h2>
+  {{ collections.years | dump(2) }}
   <ol class="explore">
   {% for year in collections.years %}
     <li><h3><a href="/archives/{{ year }}">{{ year }}</a></h3></li>
   {% endfor %}
-  </ol>
+  </ol> #}
 
   <h2 class="explore-heading">Explore my content by tag</h2>
   <ul class="explore">
