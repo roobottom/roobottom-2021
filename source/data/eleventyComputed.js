@@ -1,5 +1,3 @@
-const { page } = require("../content/photos/photos.11tydata")
-
 module.exports = {
   page: {
     github: data => {

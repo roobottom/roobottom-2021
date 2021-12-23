@@ -26,7 +26,7 @@ module.exports = function (eleventyConfig) {
   //all from content/articles, ordered by date
   eleventyConfig.addCollection('articles', require('./lib/collections/articles.js'))
 
-  //all from content/photos (for now, but others can be added later), ordered by date
+  //all from content/diary ordered by date
   eleventyConfig.addCollection('diary', require('./lib/collections/diary.js'))
 
   //all from content/photos ordered by date
