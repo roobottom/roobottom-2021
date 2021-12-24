@@ -1,4 +1,4 @@
 source/images/articles/**/* filter=lfs diff=lfs merge=lfs -text
-source/images/photos/**/* filter=lfs diff=lfs merge=lfs -text
+source/images/notes/**/* filter=lfs diff=lfs merge=lfs -text
 source/images/family-photo.jepg filter=lfs diff=lfs merge=lfs -text
 source/images/diary/**/* filter=lfs diff=lfs merge=lfs -text
