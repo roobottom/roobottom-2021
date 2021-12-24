@@ -7,14 +7,15 @@
    6. ~Update `/photos/photos.11ty.js`~
    7. ~Update sitemap~
    8. ~Update index photos~
-2. Reclaim my tweets (notes & photos)
-   1. Create a collection for notes and photos
-   2. Create views for notes
-   3. Create views for photos
-   4. Import all tweets
-   5. Update paths in IndieKit
-   6. Create a json feed for notes and photos
-   7. Reenable syndication
+2. Reclaim my tweets (updates)
+   1. ~Create a collection for notes and photos~
+   2. Create a collection for updates
+   3. Create views for notes
+   4. Create views for photos
+   5. Import all tweets
+   6. Update paths in IndieKit
+   7. Create a json feed for notes and photos
+   8. Reenable syndication
 3. Speed up site rendering
    1. Enable 11ty Severless for notes and photos
 4. Redesign homepage

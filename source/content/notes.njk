@@ -12,6 +12,27 @@
 {% block title %}<h1>{{ title }}</h1>{% endblock %}
 {% block content %}
   <div class="container container--prose">
-    
+    <dl class="summary-list">
+      {% for post in collections.notes %}
+        <div class="summary-list-row">
+          <dt class="summary-list-title">
+            {{ post.templateContent | safe }}
+            {% if post.data.photo %}
+            <ul class="mini-gallery">
+              {% for photo in post.data.photo %}
+              <li><a href="{{ photo.url | removeExtension }}">{% img photo.url, {
+                alt: photo.alt | smartypants or 'Photo for item: ' + post.data.title
+              }, 'square' %}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </dt>
+          <dd class="summary-list-meta">
+            <time class="quiet" datetime="{{ post.date | date('') }}">{{ post.date | date('D MMMM YYYY', true) }}</time>
+            {% if post.data.syndicated %}<a href="{{ post.data.syndicated }}">Also on Twitter</a>{% endif %}
+          <dd>
+        </div>
+      {% endfor %}
+    </dl>
   </div>
 {% endblock %}

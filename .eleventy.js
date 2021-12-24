@@ -29,13 +29,10 @@ module.exports = function (eleventyConfig) {
   //all from content/diary ordered by date
   eleventyConfig.addCollection('diary', require('./lib/collections/diary.js'))
 
-  //all from content/photos ordered by date
-  eleventyConfig.addCollection('photos', require('./lib/collections/photos.js'))
-
   //all from content/notes ordered by date
   eleventyConfig.addCollection('notes', require('./lib/collections/notes.js'))
 
-  //all from content/**, ordered by date
+  //ALL from content/**, ordered by date
   eleventyConfig.addCollection('content', require('./lib/collections/content.js'))
 
   //returns an array of years from content/**
