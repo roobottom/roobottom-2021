@@ -36,11 +36,11 @@ class Feed {
 
       if (item.data.photo) {
         for (let photo of item.data.photo) {
-          content = content + `<figure><img src="${photo.url}"></figure>`
+          content = content + `<figure><img src="https://roobottom.com${photo.url}"></figure>`
         }
       }
 
-      const cover = item.data.photo ? { image: item.data.photo[0].url } : null
+      const cover = item.data.photo ? { image: `https://roobottom.com${item.data.photo[0].url}` } : null
 
       feed.items.push({
         id: item.url,
