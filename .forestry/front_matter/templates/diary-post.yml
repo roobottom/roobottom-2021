@@ -1,4 +1,28 @@
 ---
 label: Diary post
-hide_body: true
-fields: []
+hide_body: false
+display_field: summary
+fields:
+- name: summary
+  type: text
+  config:
+    required: true
+  label: Summary
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+    export_format: ''
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+- name: photo
+  type: image_gallery
+  config: {}
+  label: Photo
