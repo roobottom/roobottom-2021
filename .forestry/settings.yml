@@ -11,11 +11,11 @@ sections:
   match: "*.md"
   templates:
   - diary-post
-upload_dir: uploads
-public_path: "/uploads"
+upload_dir: source/images/photos
+public_path: "/images/photos"
 front_matter_path: ''
 use_front_matter_path: false
-file_template: ":filename:"
+file_template: ":year:-:month:-:day:-:filename:"
 build:
   install_dependencies_command: npm install
   preview_docker_image: forestryio/node:12
