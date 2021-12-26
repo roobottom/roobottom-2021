@@ -5,7 +5,7 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
-  path: source/diary
+  path: source/content/diary
   label: Diary
   create: documents
   match: "*.md"
