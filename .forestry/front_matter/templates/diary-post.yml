@@ -40,3 +40,5 @@ fields:
     max: 
     labelField: 
   label: Photo
+pages:
+- source/content/diary/2021-12-25-Christmas-Day.md
