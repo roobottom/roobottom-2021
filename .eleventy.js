@@ -63,6 +63,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("firstSentence", require('./lib/filters/first-sentence.js'))
   eleventyConfig.addFilter("smartypants", require('./lib/filters/smartypants.js'))
   eleventyConfig.addFilter("removeExtension", require('./lib/filters/remove-extension.js'))
+  eleventyConfig.addFilter("formatNumber", require('./lib/filters/format-number.js'))
 
 //** static files
   eleventyConfig.addPassthroughCopy({ "source/content/admin/*.yml": "admin/" })
