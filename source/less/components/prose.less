@@ -1,11 +1,11 @@
 .prose {
 
   //** horizontal spacing
-
-  >*:not(figure):not(.gallery) {
+  >*:not(.gallery) {
     .container;
     max-width: var(--line-length);
   }
+  
 
   >figure {
     @media @bp[mid] {
@@ -38,6 +38,12 @@
 
   >*+h2 {
     margin-top: var(--space-xxl);
+  }
+
+  &.note {
+    >.gallery, >figure {
+      margin-top: var(--space-s);
+    }
   }
 
   >.gallery, >figure {

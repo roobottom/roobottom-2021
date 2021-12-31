@@ -12,7 +12,7 @@ module.exports = {
     title: data => { 
       return `Noted on ${date(data.date)}`
     },
-    permalink: data => `/notes/${slugDate(data.date)}-${data.page.fileSlug}/`,
+    permalink: null,//data => `/notes/${slugDate(data.date)}-${data.page.fileSlug}/`,
     openGraph: data => {
       return {
         type: 'article',
