@@ -13,6 +13,12 @@
     }
   }
 
+  @media @bp[min-only] {
+    >.gallery {
+      .container;
+    }
+  }
+
   >.gallery, >figure.wide {
     @media @bp[mid] {
       max-width: var(--site-width);

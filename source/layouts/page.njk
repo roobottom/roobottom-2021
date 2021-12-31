@@ -86,7 +86,9 @@
   <p class="copyright">&copy; {{ collections.stats.allPosts.earliest | date('YYYY') }} — {{ collections.stats.allPosts.latest | date('YYYY') }}</p>
   <nav>
     <ul>
-      <li><a href="/notes/">Notes</a></li>
+      {% for link in footerNavigation %}
+      <li><a href="{{ link.href }}">{{ link.title }}</a></li>
+      {% endfor %}
       <li><a href="{{ page.github }}">Edit this page</a></li>
     </ul>
   </nav>

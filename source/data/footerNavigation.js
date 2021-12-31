@@ -1,5 +1,5 @@
 module.exports = [{
-  title: 'Notes',
-  href: '/notes',
-  id: 'notes'
+  title: 'About',
+  href: '/about/',
+  id: 'about'
 }]

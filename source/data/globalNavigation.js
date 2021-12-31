@@ -11,11 +11,11 @@ module.exports = [{
   href: '/diary/',
   id: 'diary'
 }, {
+  title: 'Notes',
+  href: '/notes',
+  id: 'notes'
+}, {
   title: 'Archives',
   href: '/archives/',
   id: 'archives'
-}, {
-  title: 'About',
-  href: '/about/',
-  id: 'about'
 }]
