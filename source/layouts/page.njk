@@ -22,7 +22,7 @@
 
 {% macro renderPhotos(photos) %}
 {% for p in photos -%}
-  {% figure p.url, p.alt, 'default', p.url | removeExtension %}
+  {% figure p.url, p.alt | smartypants, 'default', p.url | removeExtension %}
 {%- endfor %}
 {% endmacro %}
 
