@@ -1,6 +1,6 @@
 ---
-summary: Drusilla's
-date: 2021-01-04
+summary: Drusillas
+date: 2022-01-04
 tags:
   - roo
   - rootwo
@@ -15,4 +15,4 @@ photo:
   - url: /images/diary/2021-01-04-IMG_5542.jpeg
     alt: The kids milk a fake cow
 ---
-Last day of the Christmas holidays, me and the kids went to Drusilla's. It poured, but we have a lovely time.
+Last day of the Christmas holidays, me and the kids went to [Drusillas](https://www.drusillas.co.uk/). It poured, but we have a lovely time.
