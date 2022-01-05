@@ -22,7 +22,7 @@
 		<meta property="og:site_name" content="Jon’s website">
 		<meta property="og:locale" content="en_GB">
 		<meta property="og:title" content="{{ title | safe }}">
-    {% if page.collectionId == 'diary' or page.collectionId == 'articles' %}
+    {% if page.collectionId == 'diary' %}
 		<meta property="og:description" content="{{ content | striptags | firstSentence }}">
     {% else %}
     <meta property="og:description" content="{{ openGraph.description }}">
@@ -36,7 +36,11 @@
 		<meta property="twitter:creator" content="@roobottom">
 		<meta property="twitter:url" content="https://roobottom.com">
 		<meta property="twitter:title" content="{{ title | safe }}">
+    {% if page.collectionId == 'diary' %}
+		<meta property="twitter:description" content="{{ content | striptags | firstSentence }}">
+    {% else %}
 		<meta property="twitter:description" content="{{ openGraph.description }}">
+    {% endif %}
 		<meta property="twitter:image" content="{{ openGraph.image }}">
 		<meta property="twitter:image:alt" content="{{ openGraph.imageAlt }}">
 
