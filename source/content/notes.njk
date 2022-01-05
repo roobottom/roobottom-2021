@@ -29,7 +29,7 @@
   {% if post.data.photo | length > 1 %}</div>{% endif %}
   {% endif %}
   <div class="note-meta">
-    <time class="hint" datetime="{{ post.date | date('') }}">{{ post.date | date('dddd, D MMMM YYYY', true) }}</time>
+    <a href="{{ post.url }}" class="hint"><time datetime="{{ post.date | date('') }}">{{ post.date | date('dddd, D MMMM YYYY', true) }}</time></a>
     {% if post.data.syndicated %}<a href="{{ post.data.syndicated }}" class="hint">Also on Twitter</a>{% endif %}
   </div>
   <hr>

@@ -22,6 +22,13 @@
     }
   }
 
+  @media @bp[mid] {
+    >.gallery {
+      padding-left: var(--space-s);
+      padding-right: var(--space-s);
+    }
+  }
+
   >.gallery, >figure.wide {
     @media @bp[mid] {
       max-width: var(--site-width);
@@ -104,7 +111,7 @@
   }
 
 //** styles
-  a {
+  a:not(.hint) {
     #type.style.link;
   }
 
