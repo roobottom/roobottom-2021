@@ -44,7 +44,7 @@ class Feed {
 
       feed.items.push({
         id: item.url,
-        url: item.url,
+        url: `https://roobottom.com${item.url}`,
         content_html: content,
         date_published: item.date,
         ...cover
