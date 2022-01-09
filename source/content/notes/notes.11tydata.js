@@ -3,12 +3,16 @@ const date = require('../../../lib/filters/date.js')
 
 module.exports = {
   layout: 'page.njk',
+  hideTitle: true,
   page: {
     collectionId: 'notes',
     collectionTitle: 'Note',
     navigationId: 'notes'
   },
   eleventyComputed: {
+    inPostDate: data => {
+      return date
+    },
     title: data => { 
       return `Noted on ${date(data.date)}`
     },

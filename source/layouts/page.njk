@@ -8,7 +8,7 @@
       {% endfor %}
     </ul>
   </nav>
-  {% if page.navigationId != 'homepage' %}
+  {% if not hideTitle %}
   <div class="title">
   {% block title %}
     <h1>{{ title | safe }}</h1>
@@ -38,11 +38,15 @@
         {{ renderPhotos(photo) }}
       {% endif %}
     {% endif %}
+    {% if inPostDate %}
+      <time datetime="{{ date | date('') }}" class="in-post-date">{{ date | date('D MMMM YYYY', true) }}</time>
+    {% endif %}
     <hr>
   </div>
+  
 {% endblock %}
 
-{% if page.collectionId == 'diary' or page.collectionId == 'articles' %}
+{% if page.collectionId == 'diary' or page.collectionId == 'articles' or page.collectionId == 'notes' %}
   {% set count = 0 %}
   {% set prevPost = null %}
   {% set nextPost = null %}
@@ -70,12 +74,12 @@
       {% if prevPost %}<li class="prev">
         <h3>Previous {{ page.collectionTitle | lower }}</h3>
         <a href="{{ prevPost.url }}" rel="prev">{{ prevPost.data.title | safe }}</a>
-        <time datetime="{{ prevPost.date | date('') }}">{{ prevPost.date | date() }}</time>
+        <time datetime="{{ prevPost.date | date('') }}">{{ prevPost.date | date('D MMMM YYYY', true) }}</time>
       </li>{% endif %}
       {% if nextPost %}<li class="next">
         <h3>Next {{ page.collectionTitle | lower }}</h3>
         <a href="{{ nextPost.url }}" rel="next">{{ nextPost.data.title | safe }}</a>
-        <time datetime="{{ nextPost.date | date('') }}">{{ nextPost.date | date() }}</time>
+        <time datetime="{{ nextPost.date | date('') }}">{{ nextPost.date | date('D MMMM YYYY', true) }}</time>
       </li>{% endif %}
     </ul>
   </nav>
