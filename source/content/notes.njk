@@ -1,17 +1,26 @@
 ---js
 {
-  title: "Notes",
-  permalink: "/notes/",
   eleventyExcludeFromCollections: true,
+  eleventyComputed: {
+    title: data => {
+      return data.pagination.pageNumber > 0 ? `Notes, page ${data.pagination.pageNumber + 1}` : 'Notes'
+    }
+  },
   page: {
     navigationId: 'notes'
+  },
+  permalink: "/notes/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}.html{% else %}/{% endif %}",
+  pagination: {
+    data: 'collections.notes',
+    size: 50,
+    alias: 'notes'
   }
 }
 ---
 {% extends "../layouts/page.njk" %}
 {% block title %}<h1>{{ title }}</h1>{% endblock %}
 {% block content %}
-{% for post in collections.notes | subset(50) %}
+{% for post in notes %}
 <div class="prose note">
   {{ post.templateContent | safe }}
   {% if post.data.links %}
@@ -35,4 +44,22 @@
   <hr>
 </div>
 {% endfor %}
+
+<nav class="pagination" aria-label="page">
+  <ul>
+    {%- if pagination.href.next -%}
+    <li class="prev">
+      <h3>Backwards in time</h3>
+      <a href="{{ pagination.href.next | replace(".html","") | replace("page/","?page=") }}" rel="prev">to page {{ pagination.pageNumber + 2 }}</a>
+    </li>
+    {%- endif -%}
+    {%- if pagination.href.previous -%}
+    <li class="next">
+      <h3>Forward in time</h3>
+      <a href="{{ pagination.href.previous | replace(".html","") | replace("page/","?page=") }}" rel="next">to page {{ pagination.pageNumber }}</a>
+    </li>
+    {%- endif -%}
+  </ul>
+</nav>
+
 {% endblock %}

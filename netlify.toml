@@ -1,0 +1,8 @@
+[[redirects]]
+from = "/notes/"
+to = "/notes/page/:page"
+status = 200
+force = true
+
+  [redirects.query]
+  page = ":page"

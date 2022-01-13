@@ -11,7 +11,7 @@ module.exports = {
   },
   eleventyComputed: {
     inPostDate: data => {
-      return date
+      return data.date
     },
     title: data => { 
       return `Noted on ${date(data.date)}`
