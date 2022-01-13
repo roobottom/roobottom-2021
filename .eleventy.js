@@ -21,6 +21,14 @@ module.exports = function (eleventyConfig) {
   //11ty md eleventyConfig
   eleventyConfig.setLibrary("md", md)
 
+  // Browser Sync (Thanks @paulrobertlloyd: https://github.com/paulrobertlloyd/paulrobertlloyd-v4/blob/7d95b8258ab9cc750b69be442abea8b7310b2306/.eleventy.js#L5)
+  eleventyConfig.setBrowserSyncConfig({
+    rewriteRules: [{
+      match: /\?page=(\d+)/g,
+      replace: 'page/$1.html',
+    }],
+  })
+
 //** collections
 
   //all from content/articles, ordered by date
