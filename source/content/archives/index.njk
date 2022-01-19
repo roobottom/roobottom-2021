@@ -11,6 +11,16 @@ permalink: "/archives/"
 
 {% block content %}
 <div class="container">
+  <h2>Explore my content by day</h2>
+  <div class="prose">
+  {% for day, data in collections.archives %}
+    <h2>{{ day }}: {{ data.day}} {{ data.month }}</h2>
+    <ul>
+      {% for post in data.posts %}<li><a href="{{ post.url }}">{{ post.data.title }}</a></li>{% endfor %}
+    </ul>
+  {% endfor %}
+  </p>
+
   {# <h2 class="explore-heading">Explore my content by year</h2>
   {{ collections.years | dump(2) }}
   <ol class="explore">

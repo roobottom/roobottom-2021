@@ -43,10 +43,13 @@ module.exports = function (eleventyConfig) {
   //ALL from content/**, ordered by date
   eleventyConfig.addCollection('content', require('./lib/collections/content.js'))
 
-  //returns an array of years from content/**
-  eleventyConfig.addCollection('years', require('./lib/collections/years.js'))
-  eleventyConfig.addCollection('yearsArticles', require('./lib/collections/yearsArticles.js'))
-  eleventyConfig.addCollection('yearsDiary', require('./lib/collections/yearsDiary.js'))
+  // //returns an array of years from content/**
+  // eleventyConfig.addCollection('years', require('./lib/collections/years.js'))
+  // eleventyConfig.addCollection('yearsArticles', require('./lib/collections/yearsArticles.js'))
+  // eleventyConfig.addCollection('yearsDiary', require('./lib/collections/yearsDiary.js'))
+
+  //An an array of 365 days with any posts for that day.
+  eleventyConfig.addCollection('archives', require('./lib/collections/archives.js'))
 
   //returns an array of tags used in post in content/**
   eleventyConfig.addCollection('tags', require('./lib/collections/tags.js'))
