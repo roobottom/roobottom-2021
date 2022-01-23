@@ -11,6 +11,28 @@ permalink: "/archives/"
 
 {% block content %}
 <div class="container">
+  <h2 class="explore-heading">Explore my content by calendar day</h2>
+  {% for month in calendar %}
+  <h3 class="explore-heading">{{ month.name }}</h3>
+  <ol class="explore">
+    {% for i in range(1, month.days + 1) %}
+      {% set collection = collections.calendar[month.name][i] %}
+      <li>
+        {% if collection %}
+        {% set postCount = collection.posts | length %}
+        <a href="/archives/day/{{ collection.dayOfYear }}/">
+          <h3>{{ i }}</h3>
+          <span class="meta">{{ postCount }} {{ 'post' | plural(postCount) }}</span>
+        </a>
+        {% else %}
+          <h3 class="faux-day" aria-hidden="true">{{ i }}</h3>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+  {% endfor %}
+  
+
   {# <h2 class="explore-heading">Explore my content by year</h2>
   {{ collections.years | dump(2) }}
   <ol class="explore">
@@ -25,7 +47,7 @@ permalink: "/archives/"
     <li>
       <a href="/tags/{{ tag.title | slug }}">
         <h3>{{ tag.title | title }}</h3>
-        <span class="meta">{{ tag.count }} {{ 'item' | plural(tag.count) }}</span>
+        <span class="meta">{{ tag.count }} {{ 'post' | plural(tag.count) }}</span>
       </a>
      </li>
   {% endfor %}
