@@ -44,12 +44,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection('content', require('./lib/collections/content.js'))
 
   // //returns an array of years from content/**
-  // eleventyConfig.addCollection('years', require('./lib/collections/years.js'))
-  // eleventyConfig.addCollection('yearsArticles', require('./lib/collections/yearsArticles.js'))
-  // eleventyConfig.addCollection('yearsDiary', require('./lib/collections/yearsDiary.js'))
+  eleventyConfig.addCollection('years', require('./lib/collections/years.js'))
+  eleventyConfig.addCollection('yearsArticles', require('./lib/collections/yearsArticles.js'))
+  eleventyConfig.addCollection('yearsDiary', require('./lib/collections/yearsDiary.js'))
 
-  //An an array of 365 days with any posts for that day.
-  eleventyConfig.addCollection('archives', require('./lib/collections/archives.js'))
+  //These two collections work in tandem to allow me to display a calendar of all posts
+  //and then a collection page for each day of the year where there are posts.
+  eleventyConfig.addCollection('calendar', require('./lib/collections/calendar.js'))
+  eleventyConfig.addCollection('daysOfYear', require('./lib/collections/daysOfYear.js'))
 
   //returns an array of tags used in post in content/**
   eleventyConfig.addCollection('tags', require('./lib/collections/tags.js'))

@@ -1,27 +1,26 @@
 ---
 eleventyExcludeFromCollections: true
-eleventyComputed:
-  title: "Archive for {{ year }}"
-permalink: "archives/{{ month }}/{{ day }}/"
-pagination:
-  data: collections.archives
+eleventyComputed: 
+  title: "Day {{ day }}"
+permalink: "archives/day/{{ day }}/"
+pagination: 
+  data: "collections.daysOfYear"
   size: 1
-  alias: month
+  alias: "day"
 ---
+{% from "../../../lib/components/posts.njk" import renderAPost as renderAPost %}
 {% extends "../../layouts/page.njk" %}
 
 {% block title %}
-  <h1>{{ year }}</h1>
+  <h1>{{ collections.daysOfYear[day].day }} {{ collections.daysOfYear[day].month }}</h1>
 {% endblock %}
 
 {% block content %}
   <div class="container container--prose">
-  <dl class="summary-list">
-  {% for article in collections.content %}
-    {% if article.date | date('YYYY') == year %}
-      {{ renderAPost (article, [article.data.page.collectionTitle]) }}
-    {% endif %}
-  {% endfor %}
-  </dl>
+    <dl class="summary-list">
+    {% for post in collections.daysOfYear[day].posts %}
+      {{ renderAPost(post, [post.data.page.collectionTitle]) }}
+    {% endfor %}
+    </dl>
   </div>
 {% endblock %}

@@ -16,10 +16,11 @@ permalink: "/archives/"
   <h3 class="explore-heading">{{ month.name }}</h3>
   <ol class="explore">
     {% for i in range(1, month.days + 1) %}
+      {% set collection = collections.calendar[month.name][i] %}
       <li>
-        {% if collections.archives[month.name][i] %}
-        {% set postCount = collections.archives[month.name][i].posts | length %}
-        <a href="/archives/day-{{ collections.archives[month.name][i].id }}/">
+        {% if collection %}
+        {% set postCount = collection.posts | length %}
+        <a href="/archives/day/{{ collection.dayOfYear }}/">
           <h3>{{ i }}</h3>
           <span class="meta">{{ postCount }} {{ 'post' | plural(postCount) }}</span>
         </a>
