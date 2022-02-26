@@ -12,14 +12,30 @@ pagination:
 {% extends "../../layouts/page.njk" %}
 
 {% block title %}
+  <span class="h3 caption">Day {{ day }}</span>
   <h1>{{ collections.daysOfYear[day].day }} {{ collections.daysOfYear[day].month }}</h1>
 {% endblock %}
 
 {% block content %}
+  <ul class="polaroids">
+  {% for post in collections.daysOfYear[day].posts %}
+    {% if (post.data.page.collectionId == 'notes' or post.data.page.collectionId == 'diary') and post.data.photo %}
+      <li><a href="{{ post.url }}">
+        {% img post.data.photo[0].url, {
+          class: 'polaroid',
+          alt: post.data.photo[0].alt
+        } %}
+      </a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+  <hr>
   <div class="container container--prose">
     <dl class="summary-list">
     {% for post in collections.daysOfYear[day].posts %}
+      {% if post.data.page.collectionId === 'diary' or not post.data.photo %}
       {{ renderAPost(post, [post.data.page.collectionTitle]) }}
+      {% endif %}
     {% endfor %}
     </dl>
   </div>
